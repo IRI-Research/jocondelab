@@ -1,0 +1,257 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/base.html" %}
+{% load i18n %}
+{% load core_extras %}
+{% load static %}
+
+    {% block js_import %}
+    {{block.super}}
+    <script type="text/javascript" src="{% static 'jocondelab/lib/underscore-min.js' %}"></script>
+    {% endblock %}
+
+    {% block js_declaration %}
+    {{block.super}}
+    <script type="text/javascript">
+    
+    var global_csrf_token = "{{ csrf_token }}";
+    var static_url = "{% static '' %}";
+    var term_id = {{ term.id }};
+    var modify_wp_link_url = "{% url 'modify_wp_link' %}";
+    var remove_wp_link_url = "{% url 'remove_wp_link' %}";
+    var term_wikipedia_edition_url = "{% url 'edition_wp_link'%}";
+    var validate_term_url = "{% url 'validate_term' %}";
+    var term_list_table_url = "{% url 'term_list_table' %}";
+    var link_semantic_level_url = "{% url 'editon_link_semantic_level' %}";
+    var wp_sparql_proxy_url = "{% url 'wp_sparql_proxy' 'XY' %}";
+    var wikipedia_urls = JSON.parse('{{ wikipedia_urls | safe }}');
+    var select_done = false;
+    
+    $(document).ready(function(){
+        init_term_events();
+        init_filter();
+        init_filter_events();
+        init_edit_page();
+    });
+    
+    </script>
+    {% endblock %}
+        
+    {% block css_declaration %}
+    {{block.super}}
+    <style type="text/css">
+    .ui-autocomplete {
+        max-height: 300px;
+        max-width: 230px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+        /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+    </style>
+    {% endblock %}
+
+
+{% block content %}
+<div id="wrapper">
+<div id="filter-container">
+{% include "jocondelab/partial/filter.html" %}
+</div>
+<div id="term-container">
+<div id='term-explorer-container'>
+{% include "jocondelab/partial/term_list_table.html" %}
+</div>
+<div id="term-detail-container">
+<div id="tags_commands">
+    <div><input type="radio" name="gr_validated" id="not_validated{{term.id}}" value="False" {% if not term.validated %}checked{% endif %}/>En cours
+    <input type="radio" name="gr_validated" id="validated{{term.id}}" value="True" {% if term.validated %}checked{% endif %} />Validé
+    {% if term.validated %}
+    par {{term.validator.username}} le {{term.validation_date|date:"d/m/Y"}}
+    {% endif %}
+    </div>
+    {% csrf_token %}
+</div>
+<div id="prev-next">
+    {% if prev_id %}<span id="prev-next-prev-link"><a href="{% url 'term' term_id=prev_id %}{% append_to_param page=prev_page %}"><img alt="{% trans 'prev' %}" src="{% static 'jocondelab/img/prev.gif' %}" /></a></span>{% endif %}
+    {% if next_id %}<span id="prev-next-next-link"><a href="{% url 'term' term_id=next_id %}{% append_to_param page=next_page %}"><img alt="{% trans 'next' %}" src="{% static 'jocondelab/img/next.gif' %}" /></a></span>{% endif %}
+    <span id="prev-next-clear"/>
+</div>
+
+<table id="term-table">
+    <tr>
+        <td>{% trans 'label' %}</td>
+        <td class="{{term.url_status_text}}">{{term.label}}</td>
+    </tr>
+    <tr>
+        <td>{% trans 'alternative labels' %}</td>
+        <td>
+            <ul>
+            {% for label in term.alternative_labels_list %}
+                <li>{{ label }}</li>
+            {% endfor %}
+            </ul>
+        </td>    
+    </tr>
+    <tr>
+        <td>{% trans 'id' %}</td>
+        <td>{{term.id}}</td>       
+    </tr>
+    <tr>
+        <td>{% trans 'uri' %}</td>
+        <td>{{term.uri}}</td>
+    </tr>
+    <tr>
+        <td>{% trans 'ancestors' %}</td>
+        <td>
+        {% for anc_term in ancestors %}
+        <span class="ancestor-link"><a href="{% url 'term' term_id=anc_term.id %}{% append_to_param %}">{{ anc_term.label }}</a></span>{% if not forloop.last %}<span class="ancestor-sep">&gt;&gt;</span>{% endif %}
+        {% endfor %}
+        </td>
+    </tr>
+    <tr id="info-wk">
+        <td>{% trans 'info wikipedia' %}</td>
+        <td>
+            <span>
+            {% if term.wikipedia_url and term.wikipedia_url != ""  %}
+            <a href="{{term.wikipedia_url}}" target="_blank"><img src="{% static 'jocondelab/img/arrow_right.png' %}" >&nbsp;{{term.wp_label}}</a>
+            {% else %}
+            <a href="http://fr.wikipedia.org/w/index.php?search={{term.label}}" target="_blank"><img src="{% static 'jocondelab/img/wikipedia_search.png' %}" ></a>
+            {% endif %}
+            </span>
+            {% if not term.wikipedia_url or term.url_status == 2 %}
+            <span>
+            {% trans 'Créer page WK' %}&nbsp;: <input type="checkbox" id="{{term.id}}-wikipedia-edition" class="wikipedia_edition" name="wikipedia_edition" {% if term.wikipedia_edition %}checked="checked"{%endif%} {%if term.validated%}disabled="disabled"{% endif %} alt="{% trans 'Need wikipedia article'%}"/>            
+            </span>
+            {% endif %}
+            <span>
+            {% if term.wikipedia_revision_id  %}
+            <a href="{{term.wikipedia_revision_permalink}}" target="_blank"><img src="{% static 'jocondelab/img/clock_arrow.png' %}" ></a>
+            {% else %}
+            &nbsp;
+            {% endif %}            
+            </span>
+            <span>
+            {% if term.dbpedia_uri and term.dbpedia_uri != ""  %}
+            <a href="{{term.dbpedia_uri}}" target="_blank"><img src="{% static 'jocondelab/img/arrow_green_right.png' %}" ></a>
+            {% else %}
+            &nbsp;
+            {% endif %}
+            </span>
+            <span>
+            {% if term.wikipedia_url and term.wikipedia_url != ""  %}
+            <select id="wp_link_semantic_level" name="link_semantic_level">
+            {% for val, label in link_semantic_level_choice %}
+            <option value="{{ val }}" {% if term.link_semantic_level == val %}selected="selected"{% endif %} >{{ label }}</option>
+            {% endfor %}
+            </select>
+            {% else %}
+            &nbsp;
+            {% endif %}
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>{% trans 'Rech. joconde' %}</td>
+        <td>
+        <a href='http://www.culture.gouv.fr/public/mistral/joconde_fr?{{encoded_term_label_query_parameter}}&ACTION=CHERCHER' target="_blank">Recherche joconde</a>
+        </td>
+    </tr>
+    <tr id="edition-wk">
+        <td>{% trans 'Edition wk' %}</td>    
+        <td>
+            <span>
+            {% if term.url_status != 4  %}
+              {% if term.validated %}
+              <img src="{% static 'jocondelab/img/red_cross_disabled.png' %}" class="remove_wp_link_disabled" id="{{term.id}}" alt="{{term.label}}" />
+              {% else %}
+              <img src="{% static 'jocondelab/img/red_cross.png' %}" class="remove_wp_link" id="{{term.id}}" alt="{{term.label}}" />
+              {% endif %}
+            {% else %}
+            &nbsp;
+            {% endif %}
+            </span>
+            <span>
+            {% if term.validated %}
+            <span><select name="wp_lang" id="wp_lang" disabled="disabled"><option value="fr" selected="selected">fr</option></select><input type="text" name="wp_search" id="wp_search" size="30" disabled="disabled" /> <span id="ok_search_disabled" class="hand_cursor_disabled"><b>OK</b></span></span>
+            {% else %}
+            <span><select name="wp_lang" id="wp_lang">{% for wp_lang in wikipedia_lang_list %}<option value="{{ wp_lang }}" {% if wp_lang == 'fr' %}selected="selected"{% endif %}>{{ wp_lang }}</option>{% endfor %}</select><input type="text" name="wp_search" id="wp_search" size="30" /> <span id="ok_search" class="hand_cursor"><b>OK</b></span></span>
+            {% endif %}
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>{% trans 'nb notice' %}</td>
+        <td>{{term.nb_notice}}</td>       
+    </tr>
+    <tr>
+        <td>{% trans 'notices' %}</td>        
+        <td class="notice-outer-container">
+        <table>
+        <tr>
+        {% for notice in notices %}
+        <td class='notice-container'>
+            {% with thumbnail=notice.thumbnails.0 %}
+            <div class="notice-img">
+            {% if thumbnail %}
+            <img src="{{ thumbnail.url }}" />
+            {% endif %}
+            </div>
+            {% endwith %}
+            <div class="notice-desc">
+                <table>
+                <tr><td class="notice-field-title">ref</td><td class="notice-field-val"><a target="_blank" href="{{JOCONDE_NOTICE_BASE_URL}}{{ notice.ref }}">{{ notice.ref }}</a></td></tr>
+                <tr><td class="notice-field-title">titr</td><td class="notice-field-val">{{ notice.titr | truncatewords:100}}</td></tr>
+                <tr><td class="notice-field-title">autr</td><td class="notice-field-val">{{ notice.autr | truncatewords:100}}</td></tr>
+                <tr><td class="notice-field-title">paut</td><td class="notice-field-val">{{ notice.paut | truncatewords:100 }}</td></tr>
+                <tr><td class="notice-field-title">srep</td><td class="notice-field-val">{{ notice.srep | truncatewords:100}}</td></tr>
+                <tr><td class="notice-field-title">drep</td><td class="notice-field-val">{{ notice.drep | truncatewords:100}}</td></tr>
+                <tr><td class="notice-field-title">lieux</td><td class="notice-field-val">{{ notice.lieux | truncatewords:100}}</td></tr>
+                </table>
+            </div>
+        </td>
+        {%if forloop.last%}</tr>{% else %}{% autoescape off %}{% cycle "" "</tr><tr>" %}{% endautoescape %}{% endif %}        
+        {% endfor %}
+        </table>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+</div>
+
+{% endblock %}

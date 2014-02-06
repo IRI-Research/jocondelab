@@ -1,0 +1,1119 @@
+# -*- coding: utf-8 -*-
+#
+# Copyright Institut de Recherche et d'Innovation © 2014 
+#
+# contact@iri.centrepompidou.fr
+#
+# Ce code a été développé pour un premier usage dans JocondeLab, projet du 
+# ministère de la culture et de la communication visant à expérimenter la
+# recherche sémantique dans la base Joconde
+# (http://jocondelab.iri-research.org/).
+#
+# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et
+# respectant les principes de diffusion des logiciels libres. Vous pouvez
+# utiliser, modifier et/ou redistribuer ce programme sous les conditions
+# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA 
+# sur le site "http://www.cecill.info".
+#
+# En contrepartie de l'accessibilité au code source et des droits de copie,
+# de modification et de redistribution accordés par cette licence, il n'est
+# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+# seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+# titulaire des droits patrimoniaux et les concédants successifs.
+#
+# A cet égard  l'attention de l'utilisateur est attirée sur les risques
+# associés au chargement,  à l'utilisation,  à la modification et/ou au
+# développement et à la reproduction du logiciel par l'utilisateur étant 
+# donné sa spécificité de logiciel libre, qui peut le rendre complexe à 
+# manipuler et qui le réserve donc à des développeurs et des professionnels
+# avertis possédant  des  connaissances  informatiques approfondies.  Les
+# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+# logiciel à leurs besoins dans des conditions permettant d'assurer la
+# sécurité de leurs systèmes et ou de leurs données et, plus généralement, 
+# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+#
+# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
+# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
+# termes.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-22 02:59-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms.py:48 forms.py:50
+msgid "Open Dialog"
+msgstr ""
+
+#: forms.py:60
+msgid "yes"
+msgstr ""
+
+#: forms.py:61
+msgid "no"
+msgstr ""
+
+#: forms.py:76
+msgid "Wikipedia version"
+msgstr ""
+
+#: forms.py:86 templates/jocondelab/term_list.html:20
+msgid "thesaurus"
+msgstr ""
+
+#: forms.py:87
+msgid "thesaurus tree"
+msgstr ""
+
+#: forms.py:88 forms.py:93 templates/jocondelab/term_edit.html:80
+msgid "label"
+msgstr ""
+
+#: forms.py:89
+msgid "link_status"
+msgstr ""
+
+#: forms.py:90
+msgid "link_semantic_level"
+msgstr ""
+
+#: forms.py:91
+msgid "wikipedia_edition"
+msgstr ""
+
+#: forms.py:92
+msgid "validated"
+msgstr ""
+
+#: forms.py:93
+msgid "order_by"
+msgstr ""
+
+#: forms.py:93 templates/jocondelab/term_edit.html:181
+#: templates/jocondelab/term_list.html:20
+msgid "nb notice"
+msgstr ""
+
+#: forms.py:93 templates/jocondelab/term_list.html:20
+msgid "level"
+msgstr ""
+
+#: forms.py:93
+msgid "order_lft"
+msgstr ""
+
+#: forms.py:94
+msgid "order_dir"
+msgstr ""
+
+#: forms.py:94
+msgid "asc"
+msgstr ""
+
+#: forms.py:94
+msgid "desc"
+msgstr ""
+
+#: settings.py:42
+msgid "French"
+msgstr ""
+
+#: settings.py:43
+msgid "English"
+msgstr ""
+
+#: settings.py:44
+msgid "Italian"
+msgstr ""
+
+#: settings.py:45
+msgid "Spanish"
+msgstr ""
+
+#: settings.py:46
+msgid "German"
+msgstr ""
+
+#: settings.py:47
+msgid "Portuguese"
+msgstr ""
+
+#: settings.py:48
+msgid "Arabic"
+msgstr ""
+
+#: settings.py:49
+msgid "Russian"
+msgstr ""
+
+#: settings.py:50
+msgid "Chinese"
+msgstr ""
+
+#: settings.py:51
+msgid "Japanese"
+msgstr ""
+
+#: settings.py:52
+msgid "Catalan"
+msgstr ""
+
+#: settings.py:53
+msgid "Basque"
+msgstr ""
+
+#: settings.py:54
+msgid "Breton"
+msgstr ""
+
+#: settings.py:55
+msgid "Occitan"
+msgstr ""
+
+#: templates/400.html:4 templates/400.html.py:6
+msgid "Erreur 404"
+msgstr ""
+
+#: templates/400.html:10
+msgid "Cette page n'est pas disponible"
+msgstr ""
+
+#: templates/403.html:4 templates/403.html.py:6
+msgid "accès interdit"
+msgstr ""
+
+#: templates/403.html:10
+msgid "L'accès à cette page est protégé"
+msgstr ""
+
+#: templates/404.html:4 templates/404.html.py:6
+msgid "Mauvaise requête"
+msgstr ""
+
+#: templates/404.html:10
+msgid "Erreur dans la requête"
+msgstr ""
+
+#: templates/jocondelab/front_about.html:4
+#: templates/jocondelab/front_about.html:6
+#: templates/jocondelab/front_base.html:95
+#: templates/jocondelab/front_home.html:28
+msgid "À propos"
+msgstr "Über"
+
+#: templates/jocondelab/front_about.html:10
+msgid ""
+"\n"
+"    <h1>JocondeLab - À propos</h1>\n"
+"    <h5>Le site internet JocondeLab est le fruit d’une expérimentation menée "
+"par le ministère de la Culture et de la Communication. Il vise à démontrer "
+"les possibilités du web sémantique ou « Web 3.0 » et de la mise en relation "
+"de données culturelles « liées », tant en termes de multilinguisme, que "
+"d'ergonomie et d’interactivité.</h5>\n"
+"    <h4>Le projet</h4>\n"
+"    <p>L'expérimentation vise notamment à faciliter l'accès aux ressources "
+"culturelles françaises auprès de nouveaux publics et apporte une "
+"contribution significative à la diversité linguistique en développant "
+"l'offre multilingue du ministère de la Culture et de la communication, sans "
+"pour autant qu’il soit nécessaire de traduire les données puisque celles-ci "
+"trouvent leur équivalent grâce à Wikipédia.</p>\n"
+"    <p>Elle donne accès en 14 langues (français, anglais, italien, espagnol, "
+"allemand, portugais, arabe, russe, japonais, chinois, catalan, basque, "
+"breton et occitan), à plus de 300 000 notices illustrées extraites de "
+"Joconde, catalogue des collections des musées de France, qui est la base de "
+"données patrimoniale la plus interrogée du ministère de la Culture (plus "
+"d'un million de sites visiteurs en 2012).</p>\n"
+"    <p>Elle permet également d'explorer de nouvelles formes de navigation au "
+"sein des ressources culturelles en ligne, d'expérimenter l'indexation "
+"collaborative et de compléter les informations de Joconde avec des données "
+"de l'encyclopédie en ligne Wikipédia, plébiscitée par le public (plus de 20 "
+"millions de visiteurs français par mois).</p>\n"
+"    <p>Cette expérience a vocation à servir d'exemple aux autres sites "
+"internet patrimoniaux et permettra de moderniser les outils utilisés au sein "
+"du ministère pour manipuler les ressources culturelles.</p>\n"
+"    <h4>Les acteurs impliqués</h4>\n"
+"    <p>Ce projet associe&nbsp;:</p>\n"
+"    <p>Plusieurs services du ministère de la Culture et de la "
+"Communication&nbsp;:</p>\n"
+"    <ul>\n"
+"        <li>La mission langues et numérique de la délégation générale à la "
+"langue française et aux langues de France, en tant que maître d’ouvrage du "
+"projet et responsable du programme sémantisation au ministère ;</li>\n"
+"        <li>Le bureau de la diffusion numérique des collections, au sein du "
+"service des musées et de la direction générale du patrimoine, administrateur "
+"de la base Joconde, qui assure la correspondance ou « liage » entre les "
+"ressources de Wikipédia et les différents lexiques utilisés sur Joconde, ce "
+"qui représente environ 30 000 termes sémantisés ;</li>\n"
+"        <li>La sous-direction des systèmes d'information du secrétariat "
+"général du ministère, qui assure la maîtrise d’œuvre du projet ;</li>\n"
+"        <li>Le département des programmes numériques du service de "
+"coordination des politiques culturelles et de l'innovation, au secrétariat "
+"général, qui apporte son expertise à travers son expérience de liage de "
+"données réalisée pour le site Histoire des Arts, HDA-Lab ;</li>\n"
+"    </ul>\n"
+"    <p>L'institut de recherche et d'innovation du Centre Pompidou, qui "
+"développe les outils utilisés par le ministère de la Culture pour le liage "
+"des ressources et le site internet JocondeLab ;</p>\n"
+"    <p>Les étudiants de Gobelins, l'École de l'image, qui ont bénéficié de "
+"la possibilité de contribuer à la galerie d'innovations JocondeLab dans le "
+"cadre d'un projet pédagogique trimestriel.</p>\n"
+"    <h4>Le contexte du projet</h4>\n"
+"    <p>L'expérimentation JocondeLab et le programme sémantisation "
+"s'inscrivent dans le cadre du volet innovation du schéma directeur des "
+"systèmes d'information du ministère. Ils s’appuient sur l'extraction de "
+"Wikipédia, <a target=\"_blank\" href=\"http://www.dbpedia.fr/\">DBPédia en "
+"français</a>, et sur le partenariat stratégique <a target=\"_blank\" href="
+"\"http://www.semanticpedia.org/\">Sémanticpédia</a> inauguré le 19 novembre "
+"2012 par Aurélie Filippetti, ministre de la Culture et de la Communication, "
+"avec l'organisme public de recherche Inria et l'association Wikimédia France."
+"</p>\n"
+"    <p>D’autres expérimentations sur le liage de données sont et seront "
+"menées dans le cadre de ce programme qui est inscrit au processus "
+"ministériel de modernisation et de simplification de l’État.</p>\n"
+"    <h4>Avertissement</h4>\n"
+"    <p>Le site JocondeLab a été optimisé pour les navigateurs internet les "
+"plus récents. Un effort particulier a été porté sur l'ergonomie de "
+"l'interface pour les terminaux mobiles, pour lesquels toutes les "
+"fonctionnalités proposées sont disponibles.</p>\n"
+"    <p>Dans la logique de l'encyclopédie collaborative, il a semblé utile "
+"d'offrir aux visiteurs du site JocondeLab la possibilité de participer à une "
+"expérimentation d'enrichissement du contenu des notices. Deux modes de "
+"contribution sont proposés au moyen des mots clés issus de Wikipédia&nbsp;:</"
+"p>\n"
+"    <ul>\n"
+"        <li>à partir de toute notice affichée dans JocondeLab&nbsp;: "
+"possibilité d'ajouter vos mots clés sur l'ensemble des informations&nbsp;; "
+"Les mots clés restent visibles d'une session à l'autre par les "
+"internautes&nbsp;; il est possible de voter pour ou contre un terme&nbsp;;</"
+"li>\n"
+"        <li>à partir de l'onglet \"contribuer\"&nbsp;: possibilité de "
+"décrire le sujet représenté d'un corpus d'environ 800 notices (arts figurés "
+"de la fin du XIXe siècle)&nbsp;; Les mots clés restent visibles uniquement "
+"durant le temps de la session de l'utilisateur.</li>\n"
+"    </ul>\n"
+"    <p>Les contributions demeurent anonymes. Les mots clés sont sauvegardés "
+"pour pouvoir être étudiés dans le cadre de l'expérience JocondeLab.</p>\n"
+"    <p>Le site internet JocondeLab est une expérimentation. À ce titre, il "
+"doit permettre d'étudier certaines fonctionnalités et pratiques. En tant que "
+"laboratoire expérimental, il présente certaines limites&nbsp;:</p>\n"
+"    <ul>\n"
+"        <li>Les temps de réponse peuvent varier en fonction du nombre de "
+"résultats de recherche&nbsp;;</li>\n"
+"        <li>L'absence et la nature des ressources DBPédia en français "
+"affectent parfois l'affichage de certaines informations pourtant présentes "
+"sur Wikipédia. Notamment, les informations de DBPédia en français "
+"déterminent les intervalles de dates de la frise chronologique&nbsp;: ainsi, "
+"pour un souverain, on aura tantôt les dates de vie et de mort, tantôt les "
+"dates de règne&nbsp;;</li>\n"
+"        <li>La quantité d'informations proposées au visiteur sur JocondeLab "
+"dépend de la richesse des ressources disponibles dans chaque langue sur "
+"Wikipédia. Le nombre de mots clés est ainsi conditionné à la présence "
+"d'articles sur l'encyclopédie dans la langue choisie.</li>\n"
+"    </ul>\n"
+"    <p>Les visiteurs du site JocondeLab sont donc invités à contribuer à "
+"Wikipédia afin d'améliorer la pertinence des sites internet proposant des "
+"ressources liées aux données de l'encyclopédie en ligne.</p>\n"
+"  "
+msgstr ""
+"\n"
+"    <h1>JocondeLab - Über</h1>\n"
+"    <h5>Die Internet-Seite JocondeLab ist ein Projekt des Kultur- und "
+"Kommunikationsministeriums. Ziel dieses Projektes ist es, die Möglichkeiten "
+"des semantischen Webs, genannt « Web 3.0 », zu belegen. Es wird gezeigt, wie "
+"verschiedene Daten in verschiedenen Sprachen ergonomisch und interaktiv "
+"zusammengebracht werden.</h5>\n"
+"    <p>Dieses Experiment dient insbesondere, einem neuen Publikum den Zugang "
+"zu Ressourcen aus dem französischen Kulturgut zu erleichtern. Es trägt zur "
+"Sprachenvielfalt bei, indem das mehrsprachige Angebot des Kultur- und "
+"Kommunikationsministeriums erweitert wird. Daten müssen aber mittels "
+"Wikipedia nicht übersetzt werden.  Unser 14-sprachiges Experiment Arabisch, "
+"Chinesisch, Deutsch, Englisch, Französisch, Japanisch, Italienisch, "
+"Portugiesisch, Russisch, Spanisch, Baskisch, Bretonisch, Katalanisch, "
+"Okzitanisch gibt Zugang zu mehr als 300 000 illustrierten Notizen aus dem "
+"Joconde-Katalog.</p>\n"
+"    <p>Das Joconde-Katalog umfasst die französischen staatlichen "
+"Kunstsammlungen  und ist als solche die meist abgerufene Datenbank des "
+"Kulturministeriums (über 20 Millionen Besucher in Frankreich pro Monat).</"
+"p>\n"
+"  "
+
+#: templates/jocondelab/front_base.html:63
+#: templates/jocondelab/front_search.html:25
+msgid "Rechercher"
+msgstr "Suchen"
+
+#: templates/jocondelab/front_base.html:68
+msgid "Changer de langue"
+msgstr "Sprache wechseln"
+
+#: templates/jocondelab/front_base.html:72
+msgid "Menu"
+msgstr "Menü"
+
+#: templates/jocondelab/front_base.html:91
+#: templates/jocondelab/front_home.html:14
+#: templates/jocondelab/front_home.html:16
+msgid "Accueil"
+msgstr "Hauptseite"
+
+#: templates/jocondelab/front_base.html:95
+#: templates/jocondelab/front_home.html:29
+msgid "Tout savoir sur l'expérimentation JocondeLab."
+msgstr "Mehr über das Experiment JocondeLab"
+
+#: templates/jocondelab/front_base.html:99
+#: templates/jocondelab/front_home.html:35
+msgid "Découvrez le monde à travers les collections des musées de France."
+msgstr ""
+"Entdecken Sie die Welt durch Kunstsammlungen aus französischen staatlichen "
+"Museen"
+
+#: templates/jocondelab/front_base.html:99
+#: templates/jocondelab/front_geo.html:35
+#: templates/jocondelab/front_geo.html:37
+#: templates/jocondelab/front_home.html:34
+msgid "Mappemonde"
+msgstr "Weltkarte"
+
+#: templates/jocondelab/front_base.html:103
+#: templates/jocondelab/front_home.html:41
+msgid ""
+"Découvrez les collections des musées de France au fil du temps (période ou "
+"date précise)."
+msgstr ""
+"Entdecken Sie Kunstsammlungen aus französischen staatlichen Museen im Laufe "
+"der Zeit"
+
+#: templates/jocondelab/front_base.html:103
+#: templates/jocondelab/front_home.html:40
+#: templates/jocondelab/front_timeline.html:23
+#: templates/jocondelab/front_timeline.html:25
+msgid "Chronologie"
+msgstr ""
+
+#: templates/jocondelab/front_base.html:107
+#: templates/jocondelab/front_home.html:47
+msgid ""
+"Choisissez un artiste, un sujet représenté, un domaine ou une époque d'un "
+"simple clic."
+msgstr ""
+"Wählen Sie per Mausklick jeweils einen Künstler, ein Thema, einen Bereich "
+"oder eine Epoche"
+
+#: templates/jocondelab/front_base.html:107
+#: templates/jocondelab/front_home.html:46
+#: templates/jocondelab/front_termlist.html:14
+#: templates/jocondelab/front_termlist.html:16
+msgid "Mots-clés"
+msgstr "Deskriptoren"
+
+#: templates/jocondelab/front_base.html:111
+#: templates/jocondelab/front_home.html:53
+msgid "Aidez-nous à décrire le sujet d'une œuvre à l'aide de Wikipédia."
+msgstr ""
+"Helfen Sie uns, anhand von Wikipedia das Thema eines Kunstwerkes zu "
+"beschreiben"
+
+#: templates/jocondelab/front_base.html:111
+#: templates/jocondelab/front_describe.html:4
+#: templates/jocondelab/front_describe.html:6
+#: templates/jocondelab/front_home.html:52
+msgid "Contribuer"
+msgstr "Mitmachen"
+
+#: templates/jocondelab/front_base.html:115
+msgid "Consultez les travaux des étudiants faits à partir de la base Joconde."
+msgstr ""
+"Studentenprojekte an der Gobelins-Hochschule für bildende und mediale Kunst, "
+"Schwerpunkt Medien"
+
+#: templates/jocondelab/front_base.html:115
+#: templates/jocondelab/front_home.html:58
+#: templates/jocondelab/front_students.html:4
+#: templates/jocondelab/front_students.html:6
+msgid "Galerie de créations"
+msgstr "Kunstwerke Galerie"
+
+#: templates/jocondelab/front_base.html:130
+#: templates/jocondelab/front_legal.html:4
+#: templates/jocondelab/front_legal.html:6
+msgid "Mentions légales"
+msgstr "Rechtliche Hinweise"
+
+#: templates/jocondelab/front_base.html:134
+#: templates/jocondelab/front_credits.html:9
+#: templates/jocondelab/front_credits.html:11
+msgid "Crédits"
+msgstr "Bilder"
+
+#: templates/jocondelab/front_base.html:137
+msgid "Ce site vous est proposé par"
+msgstr "Diese Internet-Seite ist vom"
+
+#: templates/jocondelab/front_base.html:138
+msgid "Ministère de la Culture et de la Communication"
+msgstr "Französiches Kultur- und Kommunikationsministerium"
+
+#: templates/jocondelab/front_base.html:139
+msgid "Logo du Ministère de la Culture et de la Communication"
+msgstr "Logo des französichen Kultur- und Kommunikationsministeriums"
+
+#: templates/jocondelab/front_base.html:141
+msgid "et"
+msgstr "und"
+
+#: templates/jocondelab/front_base.html:142
+msgid "Institut de Recherche et d'Innovation"
+msgstr "Institut für Forschung und Innovation"
+
+#: templates/jocondelab/front_base.html:143
+msgid "Logo de l'Institut de Recherche et d'Innovation"
+msgstr "Logo des Institutes für Forschung und Innovation"
+
+#: templates/jocondelab/front_base.html:145
+msgid "texte_post_logo_footer"
+msgstr " "
+
+#: templates/jocondelab/front_base.html:155
+#: templates/jocondelab/partial/wrapped_notice_list.html:32
+msgid "Source&nbsp;: Wikipédia"
+msgstr "Quelle&nbsp;: Wikipedia"
+
+#: templates/jocondelab/front_credits.html:14
+msgid ""
+"\n"
+"    <div class=\"credits-chapo\">\n"
+"        <p>Le site JocondeLab est une publication du ministère de la Culture "
+"et de la Communication.</p>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>&Eacute;quipe responsable du site Joconde</h2>\n"
+"        <h3>Direction générale des patrimoines – Service des musées de "
+"France - Sous-direction des collections - Bureau de la diffusion numérique "
+"des collections</h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de bureau&nbsp;:</span>\n"
+"                <span class=\"person-name\">Laurent MANŒUVRE</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Adjointe au chef du bureau&nbsp;:"
+"</span>\n"
+"                <span class=\"person-name\">Carine PRUNET</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Responsable de la base Joconde "
+"pour les beaux-arts et arts décoratifs&nbsp;:</span>\n"
+"                <span class=\"person-name\">Jeannette IVAIN</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Pilotage du projet</h2>\n"
+"        <h3>Délégation générale à la langue française et aux langues de "
+"France – Mission des langues et du numérique</h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de la mission&nbsp;:</"
+"span>\n"
+"                <span class=\"person-name\">Thibault GROUAS</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de projet maîtrise "
+"d'ouvrage&nbsp;:</span>\n"
+"                <span class=\"person-name\">Brigitte TRAN</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"        <h3>Secrétariat général - Sous-direction des systèmes d'information</"
+"h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Sous-directeur&nbsp;:</span>\n"
+"                <span class=\"person-name\">Jean-Séverin LAIR</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef du bureau des projets et "
+"études&nbsp;:</span>\n"
+"                <span class=\"person-name\">Joseph TOSCANO</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de projet maîtrise "
+"d’œuvre&nbsp;:</span>\n"
+"                <span class=\"person-name\">Driss TSILA</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Expertise</h2>\n"
+"        <h3>Département des programmes numériques</h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Expert&nbsp;:</span>\n"
+"                <span class=\"person-name\">Bertrand SAJUS</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Conception et réalisation du site</h2>\n"
+"        <h3>Institut de recherche et d'innovation</h3>\n"
+"        <p><a href=\"http://www.iri.centrepompidou.fr/\">www.iri."
+"centrepompidou.fr</a></p>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Directeur exécutif&nbsp;:</"
+"span>\n"
+"                <span class=\"person-name\">Vincent PUIG</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Directeur technique&nbsp;:</"
+"span>\n"
+"                <span class=\"person-name\">Yves-Marie HAUSSONNE</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Développeur et concepteur des "
+"interfaces&nbsp;:</span>\n"
+"                <span class=\"person-name\">Raphaël VELT</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Développeur&nbsp;:</span>\n"
+"                <span class=\"person-name\">Thibaut CAVALIE</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Traduction de l'interface</h2>\n"
+"        <ul><li>Nous remercions particulièrement tous les traducteurs de "
+"l'interface de JocondeLab qui nous ont permis de vous proposer ce site "
+"internet en 14 langues : Quentin Samier, Clara Vecchio, Paola Luna, Claire "
+"Extramiana, Perrine Balbaud, Gaïd Evenou,  谢寒 XIE Han, Catherine Bubnova, "
+"Raül David Martínez, Michel Bottin, Cécile Gonçalves, Erwan Evenou, Eri "
+"OGASAWARA, Annie Etcheverry (Euskaltzaindia), Yahya Cheikh, Dimitri Weil, "
+"Thibault Grouas, Michel Alessio, Stéphanie Guyard</li></ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Partenariat</h2>\n"
+"        <h3>Gobelins l’École de l'image</h3>\n"
+"        <p><a href=\"http://www.gobelins.fr/\">www.gobelins.fr</a></p>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Responsable de la Coopérative de "
+"Projets&nbsp;:</span>\n"
+"                <span class=\"person-name\">Arnaud LACAZE-MASMONTEIL</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Coordinateur pédagogique de la "
+"formation Concepteur réalisateur multimédia 1&nbsp;:</span>\n"
+"                <span class=\"person-name\">Thierry AUDOUX</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Intervenant conception "
+"graphique&nbsp;:</span>\n"
+"                <span class=\"person-name\">Julien DEMEUZOIS</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Intervenant développement&nbsp;:"
+"</span>\n"
+"                <span class=\"person-name\">Jonathan BLANCHET </span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Étudiants CRMA1&nbsp;:</span>\n"
+"                <span class=\"person-name\">promotion 2013</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-footer\">\n"
+"        <p>Le site JocondeLab est présenté dans une version bêta.</p>\n"
+"        <p>© Ministère de la Culture et de la Communication – 2013</p>\n"
+"    </div>\n"
+"  "
+msgstr ""
+"\n"
+"    <div class=\"credits-chapo\">\n"
+"        <p>Die Internet-Seite JocondeLab ist ein Projekt des Kultur- und "
+"Kommunikationsministeriums.</p>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Projektteam</h2>\n"
+"        <h3>Direction générale des patrimoines – Service des musées de "
+"France - Sous-direction des collections - Bureau de la diffusion numérique "
+"des collections</h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de bureau&nbsp;:</span>\n"
+"                <span class=\"person-name\">Laurent MANŒUVRE</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Adjointe au chef du bureau&nbsp;:"
+"</span>\n"
+"                <span class=\"person-name\">Carine PRUNET</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Responsable de la base Joconde "
+"pour les beaux-arts et arts décoratifs&nbsp;:</span>\n"
+"                <span class=\"person-name\">Jeannette IVAIN</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Projektführung</h2>\n"
+"        <h3>Délégation générale à la langue française et aux langues de "
+"France – Mission des langues et du numérique</h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de la mission&nbsp;:</"
+"span>\n"
+"                <span class=\"person-name\">Thibault GROUAS</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de projet maîtrise "
+"d'ouvrage&nbsp;:</span>\n"
+"                <span class=\"person-name\">Brigitte TRAN</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"        <h3>Secrétariat général - Sous-direction des systèmes d'information</"
+"h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Sous-directeur&nbsp;:</span>\n"
+"                <span class=\"person-name\">Jean-Séverin LAIR</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef du bureau des projets et "
+"études&nbsp;:</span>\n"
+"                <span class=\"person-name\">Joseph TOSCANO</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Chef de projet maîtrise "
+"d’œuvre&nbsp;:</span>\n"
+"                <span class=\"person-name\">Driss TSILA</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Expertenteam</h2>\n"
+"        <h3>Département des programmes numériques</h3>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Expert&nbsp;:</span>\n"
+"                <span class=\"person-name\">Bertrand SAJUS</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Entwurf und Durchfürung der Webseite</h2>\n"
+"        <h3>Institut de recherche et d'innovation</h3>\n"
+"        <p><a href=\"http://www.iri.centrepompidou.fr/\">www.iri."
+"centrepompidou.fr</a></p>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Directeur exécutif&nbsp;:</"
+"span>\n"
+"                <span class=\"person-name\">Vincent PUIG</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Directeur technique&nbsp;:</"
+"span>\n"
+"                <span class=\"person-name\">Yves-Marie HAUSSONNE</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Développeur et concepteur des "
+"interfaces&nbsp;:</span>\n"
+"                <span class=\"person-name\">Raphaël VELT</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Développeur&nbsp;:</span>\n"
+"                <span class=\"person-name\">Thibaut CAVALIE</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Übersetzung</h2>\n"
+"        <ul><li>Quentin Samier, Clara Vecchio, Paola Luna, Claire Extramiana, Perrine Balbaud, Gaïd Evenou, 谢寒 XIE Han, Catherine Bubnova, Raül David Martínez, Michel Bottin, Cécile Gonçalves, Erwan Evenou, Eri OGASAWARA, Annie Etcheverry (Euskaltzaindia), Yahya Cheikh, Dimitri Weil, Naïma Blanc, Thibault Grouas, Michel Alessio, Stéphanie Guyard</li></"
+"ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-section\">\n"
+"        <h2>Partnerinstitutionen</h2>\n"
+"        <h3>Gobelins l’École de l'image</h3>\n"
+"        <p><a href=\"http://www.gobelins.fr/\">www.gobelins.fr</a></p>\n"
+"        <ul>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Responsable de la Coopérative de "
+"Projets&nbsp;:</span>\n"
+"                <span class=\"person-name\">Arnaud LACAZE-MASMONTEIL</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Coordinateur pédagogique de la "
+"formation Concepteur réalisateur multimédia 1&nbsp;:</span>\n"
+"                <span class=\"person-name\">Thierry AUDOUX</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Intervenant conception "
+"graphique&nbsp;:</span>\n"
+"                <span class=\"person-name\">Julien DEMEUZOIS</span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Intervenant développement&nbsp;:"
+"</span>\n"
+"                <span class=\"person-name\">Jonathan BLANCHET </span>\n"
+"            </li>\n"
+"            <li>\n"
+"                <span class=\"person-role\">Étudiants CRMA1&nbsp;:</span>\n"
+"                <span class=\"person-name\">promotion 2013</span>\n"
+"            </li>\n"
+"        </ul>\n"
+"    </div>\n"
+"    \n"
+"    <div class=\"credits-footer\">\n"
+"        <p>Die Internet-Seite JocondeLab ist als Beta-Version verfügbar.</"
+"p>\n"
+"        <p>© Ministère de la Culture et de la Communication – 2013</p>\n"
+"    </div>\n"
+"  "
+
+#: templates/jocondelab/front_describe.html:12
+msgid "Décrivez le sujet de cette œuvre"
+msgstr "Thema des Kunstwerkes beschreiben"
+
+#: templates/jocondelab/front_describe.html:12
+#: templates/jocondelab/front_notice.html:143
+msgid "Les termes proposés proviennent de Wikipédia."
+msgstr "Die vorgeschlagenen Stichwörter stammen aus Wikipedia."
+
+#: templates/jocondelab/front_describe.html:21
+msgid "Œuvre précédente"
+msgstr "Vorheriges Kunstwerk"
+
+#: templates/jocondelab/front_describe.html:22
+msgid "Œuvre suivante"
+msgstr "Nächstes Kunstwerk"
+
+#: templates/jocondelab/front_geo.html:43
+msgid "Rechercher un lieu"
+msgstr "Standort suchen"
+
+#: templates/jocondelab/front_geo.html:50
+#: templates/jocondelab/front_search.html:32
+#: templates/jocondelab/front_timeline.html:64
+msgid "Afficher plus de résultats"
+msgstr "Mehr Ergebnisse"
+
+#: templates/jocondelab/front_home.html:23
+msgid "Bienvenue sur JocondeLab"
+msgstr "Willkommen bei JocondeLab"
+
+#: templates/jocondelab/front_home.html:59
+msgid "Les travaux des étudiants des Gobelins."
+msgstr "Studentenprojekte an der Gobelins-Hochschule."
+
+#: templates/jocondelab/front_notice.html:33
+#: templates/jocondelab/front_notice.html:35
+msgid "Détail d'une notice"
+msgstr "Detail einer Notiz"
+
+#: templates/jocondelab/front_notice.html:44
+#: templates/jocondelab/partial/notice_list.html:14
+msgid "Artiste(s)&nbsp;:"
+msgstr "Künstler&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:50
+msgid "École&nbsp;:"
+msgstr "Strömung&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:57
+msgid "Titre&nbsp;:"
+msgstr "Überschrift&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:64
+#: templates/jocondelab/partial/notice_list.html:36
+msgid "Domaine(s)&nbsp;:"
+msgstr "Themenbereich&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:70
+#: templates/jocondelab/partial/notice_list.html:48
+msgid "Désignation&nbsp;:"
+msgstr "Bezeichnung&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:76
+#: templates/jocondelab/partial/notice_list.html:56
+msgid "Sujet représenté&nbsp;:"
+msgstr "Thema&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:82
+msgid "Source&nbsp;:"
+msgstr "Quelle&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:88
+#: templates/jocondelab/partial/notice_list.html:73
+msgid "Datation&nbsp;:"
+msgstr "Datierung&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:94
+msgid "Techniques&nbsp;:"
+msgstr "Technik&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:100
+msgid "Mesures&nbsp;:"
+msgstr "Umfang&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:106
+msgid "Provenance&nbsp;:"
+msgstr "Herkunft&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:112
+msgid "Historique&nbsp;:"
+msgstr "Chronik&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:118
+msgid "Conservé à&nbsp;:"
+msgstr "Standort&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:124
+msgid "Copyright notice&nbsp;:"
+msgstr "Urheberrecht&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:130
+msgid "Crédits photographiques&nbsp;:"
+msgstr "Bilder&nbsp;:"
+
+#: templates/jocondelab/front_notice.html:137
+msgid "Cette œuvre sur le portail Joconde"
+msgstr "Zu diesem Kunstwerk auf dem Joconde-Portal"
+
+#: templates/jocondelab/front_notice.html:143
+msgid "Ajoutez vos mots-clés"
+msgstr "Neue Suchbegriffe hinzufügen"
+
+#: templates/jocondelab/front_search.html:13
+#: templates/jocondelab/front_search.html:16
+#, python-format
+msgid "Résultats pour&nbsp;: &laquo;&nbsp;%(searchterms_label)s&nbsp;&raquo;"
+msgstr "Ergebnisse für&nbsp;: &laquo;&nbsp;%(searchterms_label)s&nbsp;&raquo;"
+
+#: templates/jocondelab/front_search.html:13
+#: templates/jocondelab/front_search.html:16
+msgid "Recherche"
+msgstr "Suchen"
+
+#: templates/jocondelab/front_search.html:31
+msgid "Chargement en cours"
+msgstr "wird heruntergeladen"
+
+#: templates/jocondelab/front_students.html:10
+msgid ""
+"Les créations des étudiants 2013 d'un des départements multimédia de "
+"Gobelins, l'école de l'image, qui a participé à l'expérimentation JocondeLab."
+msgstr ""
+"2013 von Studenten durchgeführte Projekte der Gobelins-Hochschule für "
+"bildende und mediale Kunst in Paris, die am Experiment JocondeLab "
+"teilgenommen hat."
+
+#: templates/jocondelab/front_termlist.html:22
+msgid "Nuage"
+msgstr "Stichwörter Wolke"
+
+#: templates/jocondelab/front_termlist.html:25
+msgid "Artistes"
+msgstr "Künstler"
+
+#: templates/jocondelab/front_termlist.html:28
+msgid "Sujets représentés"
+msgstr "Themen"
+
+#: templates/jocondelab/front_termlist.html:31
+msgid "Catégories"
+msgstr "Kategorien"
+
+#: templates/jocondelab/front_termlist.html:34
+msgid "Époques"
+msgstr "Epochen"
+
+#: templates/jocondelab/front_termlist.html:41
+msgid "Termes les plus fréquents"
+msgstr "Häufigste Suchbegriffe"
+
+#: templates/jocondelab/front_termlist.html:51
+msgid "Classer par ordre alphabétique"
+msgstr "Alphabetisch sortieren"
+
+#: templates/jocondelab/front_timeline.html:28
+msgid "Recherche par période"
+msgstr "Suche nach Epoche"
+
+#: templates/jocondelab/front_timeline.html:49
+msgid "Recherche par date"
+msgstr "Suche nach Datum"
+
+#: templates/jocondelab/front_timeline.html:53
+msgid "Afficher les contenus de "
+msgstr "Inhalte von "
+
+#: templates/jocondelab/front_timeline.html:55
+msgid " à "
+msgstr " bis "
+
+#: templates/jocondelab/front_timeline.html:57
+msgid "texte_post_timeline_years"
+msgstr " "
+
+#: templates/jocondelab/term_edit.html:73
+msgid "prev"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:74
+#: templates/jocondelab/partial/pagination.html:27
+#: templates/jocondelab/partial/pagination.html:29
+msgid "next"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:84
+msgid "alternative labels"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:94
+msgid "id"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:98
+msgid "uri"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:102
+msgid "ancestors"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:110
+msgid "info wikipedia"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:121
+msgid "Créer page WK"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:121
+msgid "Need wikipedia article"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:152
+msgid "Rech. joconde"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:158
+msgid "Edition wk"
+msgstr ""
+
+#: templates/jocondelab/term_edit.html:185
+msgid "notices"
+msgstr ""
+
+#: templates/jocondelab/term_list.html:20
+msgid "Label"
+msgstr ""
+
+#: templates/jocondelab/term_list.html:20
+msgid "wikipedia"
+msgstr ""
+
+#: templates/jocondelab/term_list.html:20
+msgid "dbpedia"
+msgstr ""
+
+#: templates/jocondelab/term_list.html:20
+msgid "valid."
+msgstr ""
+
+#: templates/jocondelab/partial/contributed_item.html:6
+msgid "Votez pour ce terme"
+msgstr "Stimmen Sie für dieses Stichwort"
+
+#: templates/jocondelab/partial/contributed_item.html:7
+msgid "Votez contre ce terme"
+msgstr "Stimmen Sie gegen dieses Stichwort"
+
+#: templates/jocondelab/partial/contributed_item.html:9
+msgid "Annulez votre contribution"
+msgstr "Löschen"
+
+#: templates/jocondelab/partial/filter.html:3
+msgid "Select term"
+msgstr ""
+
+#: templates/jocondelab/partial/filter.html:12
+msgid "Search"
+msgstr "Suchen"
+
+#: templates/jocondelab/partial/pagination.html:6
+#, python-format
+msgid "Total number of term in the request : %(total_count)s"
+msgstr "Gesamt Anfrage : %(total_count)s"
+
+#: templates/jocondelab/partial/pagination.html:10
+#: templates/jocondelab/partial/pagination.html:12
+msgid "previous"
+msgstr ""
+
+#: templates/jocondelab/partial/wrapped_notice_list.html:7
+#, python-format
+msgid ""
+"<b>%(count)s</b> résultat pour <b>&laquo;&nbsp;%(searchterms_label)s&nbsp;"
+"&raquo;</b>"
+msgid_plural ""
+"<b>%(count)s</b> résultats pour <b>&laquo;&nbsp;%(searchterms_label)s&nbsp;"
+"&raquo;</b>"
+msgstr[0] ""
+"<b>%(count)s</b> Ergebnis für <b>&laquo;&nbsp;%(searchterms_label)s&nbsp;"
+"&raquo;</b>"
+msgstr[1] ""
+"Über <b>%(count)s</b> Ergebnisse für <b>&laquo;&nbsp;"
+"%(searchterms_label)s&nbsp;&raquo;</b>"
+
+#: templates/jocondelab/partial/wrapped_notice_list.html:9
+#, python-format
+msgid ""
+"Aucun résultat pour <b>&laquo;&nbsp;%(searchterms_label)s&nbsp;&raquo;</b>"
+msgstr ""
+"Für <b>&laquo;&nbsp;%(searchterms_label)s&nbsp;&raquo;</b> wurde kein "
+"Ergebnis gefunden"
+
+#: templates/jocondelab/partial/wrapped_notice_list.html:13
+#, python-format
+msgid "<b>%(count)s</b> œuvres des musées de France"
+msgstr "<b>%(count)s</b>  Kunstwerke aus französischen staatlichen Museen"
+
+#: templates/jocondelab/partial/wrapped_notice_list.html:15
+msgid "Aucun résultat"
+msgstr "Kein Ergebnis wurde gefunden"
+
+#: templates/registration/login.html:6
+msgid "Sorry, that's not a valid username or password."
+msgstr ""
+
+#: templates/registration/login.html:19
+msgid "login"
+msgstr ""
+
+#: views/front_office.py:170
+msgid " ET "
+msgstr " UND "

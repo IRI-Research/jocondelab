@@ -1,0 +1,643 @@
+/* -*- coding: utf-8 -*- 
+*
+* Copyright Institut de Recherche et d'Innovation © 2014 
+*
+* contact@iri.centrepompidou.fr
+*
+* Ce code a été développé pour un premier usage dans JocondeLab, projet du 
+* ministère de la culture et de la communication visant à expérimenter la
+* recherche sémantique dans la base Joconde
+* (http://jocondelab.iri-research.org/).
+*
+* Ce logiciel est régi par la licence CeCILL-C soumise au droit français et
+* respectant les principes de diffusion des logiciels libres. Vous pouvez
+* utiliser, modifier et/ou redistribuer ce programme sous les conditions
+* de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA 
+* sur le site "http://www.cecill.info".
+*
+* En contrepartie de l'accessibilité au code source et des droits de copie,
+* de modification et de redistribution accordés par cette licence, il n'est
+* offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+* seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+* titulaire des droits patrimoniaux et les concédants successifs.
+*
+* A cet égard  l'attention de l'utilisateur est attirée sur les risques
+* associés au chargement,  à l'utilisation,  à la modification et/ou au
+* développement et à la reproduction du logiciel par l'utilisateur étant 
+* donné sa spécificité de logiciel libre, qui peut le rendre complexe à 
+* manipuler et qui le réserve donc à des développeurs et des professionnels
+* avertis possédant  des  connaissances  informatiques approfondies.  Les
+* utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+* logiciel à leurs besoins dans des conditions permettant d'assurer la
+* sécurité de leurs systèmes et ou de leurs données et, plus généralement, 
+* à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+*
+* Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
+* pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
+* termes.
+*
+*/
+/* RESET CSS STYLES */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+ul, li {
+    list-style: none;
+}
+
+input::-moz-focus-inner /*Remove button padding in FF*/
+{ 
+    border: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: separate; border-spacing: 0;
+}
+
+th, td {
+    vertical-align: top;
+}
+
+img a {
+    border: none;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+/* END OF THE RESET PART */
+
+.clearer {
+    clear: both;
+}
+
+a {
+    text-decoration: none; color: inherit;
+}
+
+a:hover {
+    text-decoration: underline; color: #800000;
+}
+.no-over:hover {
+    text-decoration: none; color: inherit;
+}
+
+b, .bold {
+    font-weight: 800;
+}
+
+/* FONT DECLARATIONS */
+
+@font-face {
+    font-family: 'OpenSans';
+    font-weight: 400;
+    src: url('../font/OpenSans-Regular.woff') format('woff'),
+         url('../font/OpenSans-Regular.ttf') format('truetype'),
+         url('../font/OpenSans-Regular.svg#OpenSans') format('svg');
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    font-weight: 700;
+    src: url('../font/OpenSans-Bold.woff') format('woff'),
+         url('../font/OpenSans-Bold.ttf') format('truetype'),
+         url('../font/OpenSans-Bold.svg#OpenSans-Bold') format('svg');
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    font-weight: 800;
+    src: url('../font/OpenSans-ExtraBold.woff') format('woff'),
+         url('../font/OpenSans-ExtraBold.ttf') format('truetype'),
+         url('../font/OpenSans-ExtraBold.svg#OpenSans-Extrabold') format('svg');
+}
+
+/* END OF FONT DECLARATIONS */
+
+/* GLOBAL BLOCKS */
+
+body {
+    color: #000000; background: url('../img/background-pinstripe-yellow.png');
+    font-family: 'OpenSans'; font-size: 10px; overflow-x: hidden;
+}
+
+.header-wrapper, .menu-wrapper, .main-wrapper {
+    padding: 0 10px; clear: both;
+}
+
+.menu-wrapper {
+    background: #ffffff;
+}
+
+.header-wrapper {
+    background: url('../img/background-pinstripe-blue.png');
+}
+
+.main-menu-wrapper, .header-wrapper {
+    box-shadow: 0 2px 2px #cccccc;
+}
+
+header, .main, footer, .menu-list {
+    margin: 0 auto; max-width: 960px; clear: both;
+}
+
+footer {
+    padding: 60px 0 20px; text-align: right; font-size: 15px; line-height: 67px;
+}
+
+footer img {
+    vertical-align: middle; height: 67px;
+}
+
+.footer-links {
+    float: left; font-size: 15px; line-height: 67px;
+}
+
+.footer-links li {
+    display: inline-block;
+}
+
+.footer-links li:after {
+    content: "•";
+    margin: 0 5px;
+}
+
+.footer-links li:last-child:after {
+    display: none;
+}
+
+input {
+    font-family: 'OpenSans' !important;
+}
+
+/* END GLOBAL BLOCKS */
+
+/* HEADER > TITLE */
+
+header {
+    padding: 10px 0;
+}
+
+.header-widgets {
+    display: none; float: right;
+}
+
+html[dir=rtl] .header-widgets {
+    float: left;
+}
+
+header h1, header h2 {
+    display: inline;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+.breadcrumbs {
+    font-size: 16px;
+}
+
+.breadcrumbs:before {
+    content: "»"; margin: 0 5px;
+}
+
+.title-lab {
+    font-weight: 800;
+}
+
+/* HEADER > SEARCH FORM */
+
+.search-input, .search-form .tagit {
+    border-radius: 8px; box-shadow: 1px 1px 1px #666666 inset; border: none;
+    background: url(../img/search-icon.png) right center no-repeat #ffffff;
+    overflow: hidden;
+}
+
+html[dir=rtl] .search-input, html[dir=rtl] .search-form .tagit {
+    background-position: 4px center;
+}
+
+.header-search-form {
+    font-size: 12px;
+}
+
+.header-search-input, .header-search-form .tagit {
+    margin: 0 auto; width: 260px; max-width: 100%; z-index: 1;
+}
+
+.header-search-input {
+    line-height: 28px; height: 28px; padding: 0 9px;
+}
+
+.header-search-input::-moz-placeholder {
+    font-size: .8em; font-style: italic;
+}
+
+.header-search-input::-webkit-input-placeholder {
+    font-size: .8em; font-style: italic;
+}
+
+.search-form .tagit {
+    height: 2em; padding: 0.2em 0.5em;
+}
+
+.header-search-form .tagit {
+    float: right;
+}
+
+.header-search-form .tagit-new {
+    max-width: 50%;
+}
+
+.header-search-form .tagit input[type="text"] {
+    max-width: 100%;
+}
+
+html[dir=rtl] .header-search-form .tagit {
+    float: left;
+}
+
+html[dir=rtl] ul.tagit li {
+    float: right;
+}
+
+/* Big Search Form (on search and home pages) */
+
+.big-search-form {
+    text-align: center; margin: 20px 0; clear: both; font-size: 15px;
+}
+
+.big-search-input, .big-search-form .tagit {
+    margin: 0 auto; width: 80%;
+}
+
+.big-search-input {
+    line-height: 32px; height: 32px; padding: 0 9px;
+}
+
+/* HEADER > MENUS */
+
+.menu-link {
+    height: 26px; width: 28px; padding: 3px 0 0 4px;
+}
+
+html[dir=rtl] .menu-link {
+    padding: 3px 4px 0 0;
+}
+
+.menu-link a {
+    display: inline-block; width: 28px; height: 26px; background: url(../img/menus-sprite.png);
+}
+
+.main-menu-link a:hover {
+    background-position: 0 -26px;
+}
+
+.language-menu-link a {
+    background-position: -28px 0;
+}
+
+.language-menu-link a:hover {
+    background-position: -28px -26px;
+}
+
+
+/* MENUS */
+
+.language-form {
+    display: none;
+}
+
+.menu-list {
+    width: 100%; font-size: 13px; padding: 5px 0; line-height: 2em; text-align: right;
+}
+
+.menu-item {
+    display: inline-block; color: #666666;
+}
+
+.menu-item-current {
+    font-weight: bold; color: #000000;
+}
+
+.menu-item:before {
+    content: " "; width: 0.8em; display: inline-block;
+}
+
+.menu-item:first-child:before {
+    display: none;
+}
+
+/* DBPEDIA OVERLAY */
+
+.dbpedia-overlay {
+    position: absolute; width: 280px; background: #ffffff; border: 1px solid #999999; box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+    display: none; z-index: 1500;
+}
+
+.dbpedia-close {
+    float: right; font-weight: bold; margin: 5px; line-height: 12px; font-size: 20px;
+}
+
+.dbpedia-title {
+    font-size: 14px; font-weight: 700; margin: 8px 10px 10px;
+}
+
+.dbpedia-abstract {
+    font-size: 11px; margin: 0 10px 10px;
+}
+
+.dbpedia-source {
+    color: #0063DC; font-size: 10px; margin: 0 10px 10px; clear: both;
+}
+
+.dbpedia-image {
+    max-width: 120px; max-height: 120px; float: left; margin: 10px 10px 2px;
+}
+
+html[dir=rtl] .dbpedia-image {
+    float: right;
+}
+
+html[dir=rtl] .dbpedia-close {
+    float: left;
+}
+
+/* RESULTS LIST */
+
+.results {
+    clear: both;
+}
+
+.resultcount {
+    font-size: 18px; margin: 10px 0;
+}
+
+.notice-list {
+    margin: 0 auto;
+}
+
+.notice-item {
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    background: #ffffff;
+}
+
+html[dir=rtl] .notice-item {
+    float: right;
+}
+
+.notice-image {
+    font-size: 10px;
+}
+.visited {
+    opacity: 0.5;
+}
+.visited:hover {
+    opacity: 1;
+}
+
+.notice-item.notice-hover {
+    overflow: visible;
+}
+
+.notice-item .notice-metadata {
+    display: none;
+}
+
+.notice-item.notice-hover .notice-metadata {
+    display: block;
+}
+
+.notice-contents {
+    position: absolute; padding: 10px; z-index: 1;
+}
+
+.notice-hover .notice-contents {
+    z-index: 2; background: url('../img/background-pinstripe-yellow.png');
+    border: 1px solid #cccccc; box-shadow: 0 0 5px #333333; padding: 9px;
+}
+
+.notice-contents h2 {
+    font-size: 13px; margin-bottom: 6px; line-height: 1.1em;
+}
+
+.notice-title {
+    font-weight: bold;
+}
+
+.notice-thesaurus {
+    font-size: 12px; margin-bottom: 6px;
+}
+
+.notice-term {
+    display: inline-block; background: #d0e0f0;
+    border-radius: 3px;
+}
+
+.notice-metadata .notice-term {
+    padding: 2px; margin: 0 4px 2px 0;
+}
+
+.notice-datasheet .notice-term {
+    font-size: 13px; padding: 3px; margin: -2px 5px 4px 0;
+}
+
+.notice-term.term-untranslated {
+    background: transparent; padding: 0;
+}
+
+.notice-label {
+   display: inline-block;
+}
+
+.notice-term:hover {
+    background: #ffffff;
+}
+
+.loading-please-wait {
+    display: none; width: 48px; height: 48px; margin: 10px auto;
+}
+
+.loading-please-wait img {
+    width: 100%; height: 100%;
+}
+
+.load-more {
+    display: none; margin: 20px 0 10px; text-align: center; font-size: 14px; font-weight: 700;
+}
+
+.notice-years {
+    display: inline-block;
+}
+
+.notice-year {
+    font-weight: bold;
+}
+
+/* Wikipedia Box in search results */
+
+.wiki-info {
+    float: left; width: 480px; height: 320px; background: url("../img/background-pinstripe-blue.png"); overflow: hidden;
+}
+
+.wiki-info p {
+    font-size: 13px; text-align: justify;
+}
+
+.wiki-info-title {
+    font-size: 16px; font-weight: 700; margin: 10px 10px 0;
+}
+
+.wiki-info-abstract {
+    margin: 0 10px 10px;
+}
+
+.wiki-info-source {
+    color: #0063DC; font-size: 10px; margin: 5px 10px;
+}
+
+.wiki-info-image {
+    float: left; margin: 10px 10px 2px;
+}
+
+html[dir=rtl] .wiki-info, html[dir=rtl] .wiki-info-image {
+    float: right;
+}
+
+/* About pages */
+
+.about-text {
+    font-size: 13px; margin: 5px 0; text-align: justify;
+}
+.about-text h1 {
+    font-size: 26px; margin-top: 10px; font-weight: bold;
+}
+.about-text h4 {
+    font-size: 15px; margin-top: 15px; font-weight: bold; color: #0000C0;
+}
+.about-text h5 {
+    font-size: 13px; margin-top: 5px; font-weight: bold;
+}
+.about-text > ul > li {
+    list-style: inside;
+}
+.about-text a {
+    color: #666666;
+}
+.about-text .italic {
+    font-style: italic; margin-top: 5px;
+}
+
+/* error page */
+.http-error {
+    font-size: 18px; margin: 10px 0;
+}
+
+
+/* Smaller screens adaptation */
+
+@media screen and (max-width: 720px) {
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .breadcrumbs {
+        font-size: 15px;
+    }
+    
+    .notice-item {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .header-widgets {
+        padding: 0;
+    }
+    
+    .wiki-info p {
+        font-size: 12px; text-align: left;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    .wiki-info-image {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 540px) {
+        
+    .header-widgets {
+        display: block;
+    }
+    
+    .menu-list {
+        display: none;
+    }
+    
+}
+
+@media screen and (min-width: 540px) {
+    
+    .menu-list {
+        display: block !important;
+    }
+    
+}
+
+.version {
+    outline: 1px solid transparent;
+}
+
+.version span {
+    visibility: hidden;
+}
+
+.version:hover span {
+    visibility: visible;
+}
+

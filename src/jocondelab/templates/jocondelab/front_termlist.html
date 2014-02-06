@@ -1,0 +1,115 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load compressed %}
+
+{% block js_import %}
+    {% compressed_js 'front-termlist' %}
+{% endblock %}
+
+{% block css_import %}
+    {% compressed_css 'front-termlist' %}
+{% endblock %}
+
+{% block title %}JocondeLab &raquo; {% trans 'Mots-clés' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'Mots-clés' %}{% endblock %}
+
+{% block main %}
+            
+            <ul class="term-tabs">
+                <li class="term-tab{% if thesaurus == None %} active{% endif %}">
+                    <h2><a href="{% url 'front_termlist' %}">{% trans "Nuage" %}</a></h2>
+                </li>
+                <li class="term-tab{% if thesaurus == 'AUTR' %} active{% endif %}">
+                    <h2><a href="{% url 'front_termlist' %}?thesaurus=AUTR">{% trans "Artistes" %}</a></h2>
+                </li>
+                <li class="term-tab{% if thesaurus == 'REPR' %} active{% endif %}">
+                    <h2><a href="{% url 'front_termlist' %}?thesaurus=REPR">{% trans "Sujets représentés" %}</a></h2>
+                </li>
+                <li class="term-tab{% if thesaurus == 'DOMN' %} active{% endif %}">
+                    <h2><a href="{% url 'front_termlist' %}?thesaurus=DOMN">{% trans "Catégories" %}</a></h2>
+                </li>
+                <li class="term-tab{% if thesaurus == 'EPOQ' %} active{% endif %}">
+                    <h2><a href="{% url 'front_termlist' %}?thesaurus=EPOQ">{% trans "Époques" %}</a></h2>
+                </li>
+            </ul>
+            
+            <div class="term-contents">
+        {% if thesaurus %}
+                <p class="term-filter{% if not alpha_sort %} active{% endif %}">
+                    <a href="{% url 'front_termlist' %}?thesaurus={{thesaurus}}">{% trans "Termes les plus fréquents" %}</a>
+                </p>
+            {% if show_alphabet %}
+                <ul class="term-filter letter-list">
+                {% for letter in alphabet %}
+                    <li class="letter{% if letter == current_letter %} active{% endif %}"><a href="{% url 'front_termlist' %}?thesaurus={{thesaurus}}&letter={{letter|urlencode}}">{{letter}}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p class="term-filter{% if alpha_sort %} active{% endif %}">
+                    <a href="{% url 'front_termlist' %}?thesaurus={{thesaurus}}&alphabet=1">{% trans "Classer par ordre alphabétique" %}</a>
+                </p>
+            {% endif %}
+                <ul class="terms clearfix">
+                {% for term in terms %}
+                    <li class="term" data-dbpedia-uri="{{term.dbpedia_uri}}">
+                        <div class="term-image-wrap">
+                            <img class="term-image" src="{{JOCONDE_IMAGE_BASE_URL}}{{term.image_url}}" />
+                        </div>
+                        <h3 data-dbpedia-uri="{{term.dbpedia_uri}}"><a href="{% url 'front_search' %}?dbpedia_uri={{term.dbpedia_uri|urlencode}}&thesaurus={{thesaurus}}">{{term.label}}</a></h3>
+                            {% if term.abstract %}<p>{{term.abstract|truncatechars:100}}</p>{% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+        {% else %}
+                <ul class="term-cloud">
+                {% for word in words %}
+                    <li style="font-size: {{word.font_size}}em">
+                        <a href="{% url 'front_search' %}?dbpedia_uri={{word.uri|urlencode}}" data-dbpedia-uri="{{word.uri}}">{{word.label}}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+        {% endif %}
+            </div>
+            
+            <div class="loading-please-wait"><img src="{% static 'jocondelab/img/loader.gif' %}" /></div>
+            <script>$(function() { dbpediaBox.bind(".term h3");});</script>
+            
+{% endblock %}

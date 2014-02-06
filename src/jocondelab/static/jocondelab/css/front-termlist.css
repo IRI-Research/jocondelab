@@ -1,0 +1,119 @@
+/* -*- coding: utf-8 -*- 
+*
+* Copyright Institut de Recherche et d'Innovation © 2014 
+*
+* contact@iri.centrepompidou.fr
+*
+* Ce code a été développé pour un premier usage dans JocondeLab, projet du 
+* ministère de la culture et de la communication visant à expérimenter la
+* recherche sémantique dans la base Joconde
+* (http://jocondelab.iri-research.org/).
+*
+* Ce logiciel est régi par la licence CeCILL-C soumise au droit français et
+* respectant les principes de diffusion des logiciels libres. Vous pouvez
+* utiliser, modifier et/ou redistribuer ce programme sous les conditions
+* de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA 
+* sur le site "http://www.cecill.info".
+*
+* En contrepartie de l'accessibilité au code source et des droits de copie,
+* de modification et de redistribution accordés par cette licence, il n'est
+* offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+* seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+* titulaire des droits patrimoniaux et les concédants successifs.
+*
+* A cet égard  l'attention de l'utilisateur est attirée sur les risques
+* associés au chargement,  à l'utilisation,  à la modification et/ou au
+* développement et à la reproduction du logiciel par l'utilisateur étant 
+* donné sa spécificité de logiciel libre, qui peut le rendre complexe à 
+* manipuler et qui le réserve donc à des développeurs et des professionnels
+* avertis possédant  des  connaissances  informatiques approfondies.  Les
+* utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+* logiciel à leurs besoins dans des conditions permettant d'assurer la
+* sécurité de leurs systèmes et ou de leurs données et, plus généralement, 
+* à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+*
+* Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
+* pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
+* termes.
+*
+*/
+/* TERM CLOUD */
+
+.term-cloud {
+    line-height: 26px; width: 80%; font-size: 12px; text-align: center; margin: 10px auto; clear: both;
+}
+
+.term-cloud li {
+    display: inline-block; margin: 0 10px;
+}
+
+.term-tabs {
+    width: 100%; clear: both; height: 41px; margin-top: 15px;
+}
+
+.term-tab {
+    width: 20%; float: left;
+}
+
+.term-tab h2 {
+    height: 20px; margin: 0 2px; border: 1px #cccccc; border-style: solid solid none; padding: 10px; font-weight: bold; text-align: center;
+    font-size: 15px; background: #f8f8f8; color: #0000c0; border-radius: 8px 8px 0 0; overflow: hidden; line-height: 1.1em;
+}
+
+@media screen and (max-width: 720px) {
+    .term-tab h2 {
+        font-size: 12px;
+    }
+}
+
+.term-tab.active h2 {
+    color: #000000; background: #ffffff; font-weight: bold;
+}
+
+.term-contents {
+    background: #ffffff; border: 1px solid #cccccc; padding: 10px;
+}
+
+.term-filter {
+    margin: 5px; font-size: 16px; font-weight: bold; color: #666666;
+}
+
+.letter {
+    display: inline-block;
+}
+
+.term-filter.active, .letter.active {
+    color: #0000C0;
+}
+
+.term-contents-empty {
+    text-align: center; font-size: 18px; font-style: italic; color: #999999;
+}
+
+.terms {
+    width: 100%;
+}
+
+.term {
+    float: left; width: 290px; margin: 5px; border: 1px solid #e0e0e0; padding: 5px; height: 60px; overflow: hidden;
+}
+
+html[dir=rtl] {
+    /*float: right;*/
+}
+
+.term-image-wrap {
+    float: left; width: 48px; height: 60px; margin-right: 5px;
+}
+
+.term h3 {
+    font-size: 13px; font-weight: bold;
+}
+
+.term img {
+    display: block; margin: 0 auto; max-width: 48px; max-height: 60px;
+}
+
+.term p {
+    font-size: 11px; line-height: 1.1em;
+}

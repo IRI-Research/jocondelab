@@ -1,0 +1,101 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_search.html" %}
+{% load i18n %}
+{% load compressed %}
+{% load static %}
+
+{% block js_import %}
+    {% compressed_js 'front-home' %}
+{% endblock %}
+
+{% block css_import %}
+    {% compressed_css 'front-home' %}
+{% endblock %}
+
+{% block title %}JocondeLab &raquo; {% trans 'Accueil' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'Accueil' %}{% endblock %}
+
+{% block main_menu %}{% endblock %}
+{% block main_menu_link %}{% endblock %}
+
+{% block main %}
+        <div class="hide-on-search">
+            <h2 class="about-jl">{% trans 'Bienvenue sur JocondeLab' %}</h2>
+            
+            <ul class="module-list">
+              <a class="no-over" href="{% url 'front_about' %}">
+                <li class="module-item">
+                    <h3>{% trans "À propos" %}</h3>
+                    <p>{% trans "Tout savoir sur l'expérimentation JocondeLab." %}</p>
+                </li>
+              </a>
+              <a class="no-over" href="{% url 'front_geo' %}">
+                <li class="module-item">
+                    <h3>{% trans "Mappemonde" %}</h3>
+                    <p>{% trans "Découvrez le monde à travers les collections des musées de France." %}</p>
+                </li>
+              </a>
+              <a class="no-over" href="{% url 'front_timeline' %}">
+                <li class="module-item">
+                    <h3>{% trans "Chronologie" %}</h3>
+                    <p>{% trans "Découvrez les collections des musées de France au fil du temps (période ou date précise)." %}</p>
+                </li>
+              </a>
+              <a class="no-over" href="{% url 'front_termlist' %}">
+                <li class="module-item">
+                    <h3>{% trans "Mots-clés" %}</h3>
+                    <p>{% trans "Choisissez un artiste, un sujet représenté, un domaine ou une époque d'un simple clic." %}</p>
+                </li>
+              </a>
+              <a class="no-over" href="{% url 'random_describe' %}">
+                <li class="module-item">
+                    <h3>{% trans "Contribuer" %}</h3>
+                    <p>{% trans "Aidez-nous à décrire le sujet d'une œuvre à l'aide de Wikipédia." %}</p>
+                </li>
+              </a>
+              <a class="no-over" href="{% url 'front_students' %}">
+                <li class="module-item">
+                    <h3>{% trans "Galerie de créations" %}</h3>
+                    <p>{% trans "Les travaux des étudiants des Gobelins." %}</p>
+                </li>
+              </a>
+            </ul>
+        </div>
+{{block.super}}
+{% endblock %}

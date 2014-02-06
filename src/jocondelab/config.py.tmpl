@@ -1,0 +1,204 @@
+# -*- coding: utf-8 -*-
+#
+# Copyright Institut de Recherche et d'Innovation © 2014
+#
+# contact@iri.centrepompidou.fr
+#
+# Ce code a été développé pour un premier usage dans JocondeLab, projet du 
+# ministère de la culture et de la communication visant à expérimenter la
+# recherche sémantique dans la base Joconde
+# (http://jocondelab.iri-research.org/).
+#
+# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et
+# respectant les principes de diffusion des logiciels libres. Vous pouvez
+# utiliser, modifier et/ou redistribuer ce programme sous les conditions
+# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA 
+# sur le site "http://www.cecill.info".
+#
+# En contrepartie de l'accessibilité au code source et des droits de copie,
+# de modification et de redistribution accordés par cette licence, il n'est
+# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+# seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+# titulaire des droits patrimoniaux et les concédants successifs.
+#
+# A cet égard  l'attention de l'utilisateur est attirée sur les risques
+# associés au chargement,  à l'utilisation,  à la modification et/ou au
+# développement et à la reproduction du logiciel par l'utilisateur étant 
+# donné sa spécificité de logiciel libre, qui peut le rendre complexe à 
+# manipuler et qui le réserve donc à des développeurs et des professionnels
+# avertis possédant  des  connaissances  informatiques approfondies.  Les
+# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+# logiciel à leurs besoins dans des conditions permettant d'assurer la
+# sécurité de leurs systèmes et ou de leurs données et, plus généralement, 
+# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+#
+# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
+# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
+# termes.
+#
+
+'''
+Created on May 29, 2013
+
+@author: ymh
+'''
+import logging
+import os
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__)).rstrip("/")+"/"
+BASE_DIR = '%(base_dir)s'
+BASE_URL = '%(base_url)s'
+WEB_URL = '%(web_url)s'
+BASE_STATIC_URL = WEB_URL + BASE_URL + 'static/' 
+BASE_STATIC_ROOT = os.path.abspath(BASE_DIR + "../../web/static/").rstrip("/")+"/"
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.%(db_engine)s', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '%(db_name)s',                        # Or path to database file if using sqlite3.
+        'USER': '%(db_user)s',
+        'PASSWORD': '%(db_password)s',
+        'HOST': '%(db_host)s',                        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '%(db_port)d',                        # Set to empty string for default.
+    }
+}
+
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = []
+
+# Local time zone for this installation. Choices can be found here:
+# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+# although not all choices may be available on all operating systems.
+# In a Windows environment this must be set to your system time zone.
+TIME_ZONE = 'America/Chicago'
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = 'en-us'
+
+SITE_ID = 1
+
+# If you set this to False, Django will make some optimizations so as not
+# to load the internationalization machinery.
+USE_I18N = True
+
+# If you set this to False, Django will not format dates, numbers and
+# calendars according to the current locale.
+USE_L10N = True
+
+# If you set this to False, Django will not use timezone-aware datetimes.
+USE_TZ = True
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/var/www/example.com/media/"
+MEDIA_ROOT = BASE_STATIC_ROOT + "media/"
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://example.com/media/", "http://media.example.com/"
+MEDIA_URL = BASE_STATIC_URL + "media/"
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/static/"
+STATIC_ROOT = BASE_STATIC_ROOT + "site/"
+
+# URL prefix for static files.
+# Example: "http://example.com/static/", "http://static.example.com/"
+STATIC_URL = BASE_STATIC_URL + 'site/'
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '%(secret_key)s'
+
+#use etags
+USE_ETAGS = False
+
+#LOG_FILE = os.path.abspath(os.path.join(BASE_DIR,"../../run/log/log.txt"))
+LOG_FILE = '%(log_file)s'
+LOG_LEVEL = logging.DEBUG
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'formatters' : {
+        'simple' : {
+            'format': "%(asctime)s - %(levelname)s : %(message)s",
+        },
+        'semi-verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+    },
+    'handlers': {
+        'stream_to_console': {
+            'level': LOG_LEVEL,
+            'class': 'logging.StreamHandler'
+        },
+        'file': {
+            'level': LOG_LEVEL,
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+            'formatter': 'semi-verbose',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'jocondelab': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'core': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'rdflib_sqlalchemy': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'rdflib.term': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },    
+
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+        'KEY_FUNCTION' : 'jocondelab.cache_utils.make_key'
+    }
+}
+
+CACHE_MIDDLEWARE_SECONDS = 600
+HOME_CACHE_SECONDS = 30
+
+
+#PIPELINE_ENABLED = not DEBUG
+PIPELINE_CSS_COMPRESSOR = "pipeline.compressors.yuglify.YuglifyCompressor"
+PIPELINE_JS_COMPRESSOR = "pipeline.compressors.yuglify.YuglifyCompressor"
+

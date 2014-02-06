@@ -1,0 +1,182 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load compressed %}
+
+
+{% block css_import %}
+    {% compressed_css 'front-credits' %}
+{% endblock %}
+
+{% block js_declaration %}
+{% endblock %}
+
+{% block title %}JocondeLab &raquo; {% trans 'Crédits' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'Crédits' %}{% endblock %}
+
+{% block main %}
+   {% blocktrans %}
+    <div class="credits-chapo">
+        <p>Le site JocondeLab est une publication du ministère de la Culture et de la Communication.</p>
+    </div>
+    
+    <div class="credits-section">
+        <h2>&Eacute;quipe responsable du site Joconde</h2>
+        <h3>Direction générale des patrimoines – Service des musées de France - Sous-direction des collections - Bureau de la diffusion numérique des collections</h3>
+        <ul>
+            <li>
+                <span class="person-role">Chef de bureau&nbsp;:</span>
+                <span class="person-name">Laurent MANŒUVRE</span>
+            </li>
+            <li>
+                <span class="person-role">Adjointe au chef du bureau&nbsp;:</span>
+                <span class="person-name">Carine PRUNET</span>
+            </li>
+            <li>
+                <span class="person-role">Responsable de la base Joconde pour les beaux-arts et arts décoratifs&nbsp;:</span>
+                <span class="person-name">Jeannette IVAIN</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="credits-section">
+        <h2>Pilotage du projet</h2>
+        <h3>Délégation générale à la langue française et aux langues de France – Mission des langues et du numérique</h3>
+        <ul>
+            <li>
+                <span class="person-role">Chef de la mission&nbsp;:</span>
+                <span class="person-name">Thibault GROUAS</span>
+            </li>
+            <li>
+                <span class="person-role">Chef de projet maîtrise d'ouvrage&nbsp;:</span>
+                <span class="person-name">Brigitte TRAN</span>
+            </li>
+        </ul>
+        <h3>Secrétariat général - Sous-direction des systèmes d'information</h3>
+        <ul>
+            <li>
+                <span class="person-role">Sous-directeur&nbsp;:</span>
+                <span class="person-name">Jean-Séverin LAIR</span>
+            </li>
+            <li>
+                <span class="person-role">Chef du bureau des projets et études&nbsp;:</span>
+                <span class="person-name">Joseph TOSCANO</span>
+            </li>
+            <li>
+                <span class="person-role">Chef de projet maîtrise d’œuvre&nbsp;:</span>
+                <span class="person-name">Driss TSILA</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="credits-section">
+        <h2>Expertise</h2>
+        <h3>Département des programmes numériques</h3>
+        <ul>
+            <li>
+                <span class="person-role">Expert&nbsp;:</span>
+                <span class="person-name">Bertrand SAJUS</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="credits-section">
+        <h2>Conception et réalisation du site</h2>
+        <h3>Institut de recherche et d'innovation</h3>
+        <p><a href="http://www.iri.centrepompidou.fr/">www.iri.centrepompidou.fr</a></p>
+        <ul>
+            <li>
+                <span class="person-role">Directeur exécutif&nbsp;:</span>
+                <span class="person-name">Vincent PUIG</span>
+            </li>
+            <li>
+                <span class="person-role">Directeur technique&nbsp;:</span>
+                <span class="person-name">Yves-Marie HAUSSONNE</span>
+            </li>
+            <li>
+                <span class="person-role">Développeur et concepteur des interfaces&nbsp;:</span>
+                <span class="person-name">Raphaël VELT</span>
+            </li>
+            <li>
+                <span class="person-role">Développeur&nbsp;:</span>
+                <span class="person-name">Thibaut CAVALIE</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="credits-section">
+        <h2>Traduction de l'interface</h2>
+        <ul><li>Nous remercions particulièrement tous les traducteurs de l'interface de JocondeLab qui nous ont permis de vous proposer ce site internet en 14 langues : Quentin Samier, Clara Vecchio, Paola Luna, Claire Extramiana, Perrine Balbaud, Gaïd Evenou,  谢寒 XIE Han, Catherine Bubnova, Raül David Martínez, Michel Bottin, Cécile Gonçalves, Erwan Evenou, Eri OGASAWARA, Annie Etcheverry (Euskaltzaindia), Yahya Cheikh, Dimitri Weil, Thibault Grouas, Michel Alessio, Stéphanie Guyard</li></ul>
+    </div>
+    
+    <div class="credits-section">
+        <h2>Partenariat</h2>
+        <h3>Gobelins l’École de l'image</h3>
+        <p><a href="http://www.gobelins.fr/">www.gobelins.fr</a></p>
+        <ul>
+            <li>
+                <span class="person-role">Responsable de la Coopérative de Projets&nbsp;:</span>
+                <span class="person-name">Arnaud LACAZE-MASMONTEIL</span>
+            </li>
+            <li>
+                <span class="person-role">Coordinateur pédagogique de la formation Concepteur réalisateur multimédia 1&nbsp;:</span>
+                <span class="person-name">Thierry AUDOUX</span>
+            </li>
+            <li>
+                <span class="person-role">Intervenant conception graphique&nbsp;:</span>
+                <span class="person-name">Julien DEMEUZOIS</span>
+            </li>
+            <li>
+                <span class="person-role">Intervenant développement&nbsp;:</span>
+                <span class="person-name">Jonathan BLANCHET </span>
+            </li>
+            <li>
+                <span class="person-role">Étudiants CRMA1&nbsp;:</span>
+                <span class="person-name">promotion 2013</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="credits-footer">
+        <p>Le site JocondeLab est présenté dans une version bêta.</p>
+        <p>© Ministère de la Culture et de la Communication – 2013</p>
+    </div>
+  {% endblocktrans %}
+{% endblock %}

@@ -1,0 +1,197 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+{% load jlutils %}
+{% load static %}
+{% load compressed %}
+
+{% block js_import %}
+    {% compressed_js 'front-notice' %}
+{% endblock %}
+
+{% block js_declaration %}
+    {{block.super}}
+    <script type="text/javascript">
+        var notice_id = "{{object.id}}",
+            csrf_token = "{{csrf_token}}";
+        urls.ajax_contribute = "{% url 'ajax_contribute' %}";
+        urls.upvote = "{% url 'ajax_upvote' %}";
+        urls.downvote = "{% url 'ajax_downvote' %}";
+        urls.wikipedia = {{wikipedia_urls|safe}};
+    </script>
+{% endblock %}
+
+{% block css_import %}
+    {% compressed_css 'front-notice' %}
+{% endblock %}
+
+
+{% block title %}JocondeLab &raquo; {% trans "Détail d'une notice" %}{% endblock %}
+
+{% block breadcrumbs %}{% trans "Détail d'une notice" %}{% endblock %}
+
+{% block main %}
+            <div class="notice-colright-wrapper">
+                <div class="notice-colright">
+    {% block datasheet %}
+                    <table class="notice-datasheet">
+                    {% if object.autr %}
+                        <tr class="datasheet-title">
+                            <th>{% trans 'Artiste(s)&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'AUTR' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.ecol %}
+                        <tr>
+                            <th>{% trans 'École&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'ECOL' %}</td>
+                        </tr>
+                    {% endif %}
+            {% block datasheet_title %}
+                    {% if object.titr %}
+                        <tr class="datasheet-title">
+                            <th>{% trans 'Titre&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'TITR' %}</td>
+                        </tr>
+                    {% endif %}
+            {% endblock %}
+                    {% if object.domn %}
+                        <tr>
+                            <th>{% trans 'Domaine(s)&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'DOMN' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.deno or object.appl %}
+                        <tr>
+                            <th>{% trans 'Désignation&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'DENO' isbold=True %}{% show_datasheet_row 'APPL' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.repr %}
+                        <tr>
+                            <th>{% trans 'Sujet représenté&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'REPR' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.srep %}
+                        <tr>
+                            <th>{% trans 'Source&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'SREP' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.peri or object.mill or object.epoq %}
+                        <tr>
+                            <th>{% trans 'Datation&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'PERI' %}{% show_datasheet_row 'MILL' %}{% show_datasheet_row 'EPOQ' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.tech %}
+                        <tr>
+                            <th>{% trans 'Techniques&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'TECH' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.tech %}
+                        <tr>
+                            <th>{% trans 'Mesures&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'DIMS' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.lieux or object.decv %}
+                        <tr>
+                            <th>{% trans 'Provenance&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'LIEUX' %}{% show_datasheet_row 'DECV' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.hist %}
+                        <tr>
+                            <th>{% trans 'Historique&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'HIST' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.loca %}
+                        <tr>
+                            <th>{% trans 'Conservé à&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'LOCA' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.copy %}
+                        <tr class="notice-small">
+                            <th>{% trans 'Copyright notice&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'COPY' %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if object.phot %}
+                        <tr class="notice-small">
+                            <th>{% trans 'Crédits photographiques&nbsp;:' %}</th>
+                            <td>{% show_datasheet_row 'PHOT' %}</td>
+                        </tr>
+                    {% endif %}
+                    </table>
+
+                    <p class="notice-jocondelink">
+                        <a href="{{JOCONDE_NOTICE_BASE_URL}}{{ notice.ref }}" target="_blank">{% trans 'Cette œuvre sur le portail Joconde' %}</a>
+                    </p>
+    {% endblock %}
+
+    {% block contribution %}
+                    <form class="contribution-frame folksonomy-frame" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+                        <h2 class="inline">{% trans "Ajoutez vos mots-clés" %} </h2><p class="inline"> {% trans "Les termes proposés proviennent de Wikipédia." %}</p>
+                        <input class="notice-contribution-field" type="text" size="60" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                        <ul class="notice-term-list notice-contribution-list">
+                        {% for term in contributions %}
+                            {% include "jocondelab/partial/contributed_item.html" %}
+                        {% endfor %}
+                        </ul>
+                    </form>
+    {% endblock %}
+
+                </div>
+            </div>
+    {% block images %}
+            <ul class="notice-images">
+                {% for img in object.large_images %}
+                <li>
+                    <a href="{{img}}" title="{{title}}">
+                        <img src="{{img}}" />
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+    {% endblock %}
+{% endblock %}

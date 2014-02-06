@@ -2,3 +2,15 @@
 *.pot
 *.pyc
 local_settings.py
+crea/
+.hg*
+virtualenv/
+.project
+.pydevproject
+.settings/
+data/
+run/
+sbin/
+web/
+src/jocondelab/static/jocondelab/students/
+src/jocondelab/config.py

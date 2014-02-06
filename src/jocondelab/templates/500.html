@@ -1,0 +1,128 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% load static %}
+<!doctype html>
+
+<html lang="fr">
+    <head>
+    
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="SHORTCUT ICON" href="{% get_static_prefix %}jocondelab/img/favicon.ico" />
+        <title>JocondeLab &raquo; Erreur d'application</title>
+
+        <link rel="stylesheet" href="{% get_static_prefix %}jocondelab/css/front-common.css" type="text/css"/>
+    </head>
+    <body>
+    
+        <div class="menu-wrapper language-menu-wrapper">
+            <ul class="language-menu menu-list">
+            <li>&nbsp;</li>
+            </ul>
+        </div>
+        <div class="header-wrapper">
+            <header>
+                <h1><a href="{% url 'front_home' %}">Joconde<span class="title-lab">Lab</span></a></h1>
+                <h2 class="breadcrumbs">Erreur d'application</h2>
+                <div class="clearer"></div>
+            </header>
+        </div>
+        <div class="menu-wrapper main-menu-wrapper">
+            <ul class="main-menu menu-list">
+                <li class="menu-item">
+                    <a href="{% url 'front_home' %}">Accueil</a>
+                </li>
+                {% url 'front_about' as url %}
+                <li class="menu-item">
+                    <a href="{{url}}" title="Tout savoir sur l'expérimentation JocondeLab.">À propos</a>
+                </li>
+                {% url 'front_geo' as url %}
+                <li class="menu-item">
+                    <a href="{{url}}" title="Découvrez le monde à travers les collections des musées de France." >Mappemonde</a>
+                </li>
+                {% url 'front_timeline' as url %}
+                <li class="menu-item">
+                    <a href="{{url}}" title="Découvrez les collections des musées de France au fil du temps (période ou date précise).">Chronologie</a>
+                </li>
+                {% url 'front_termlist' as url %}
+                <li class="menu-item">
+                    <a href="{{url}}" title="Choisissez un artiste, un sujet représenté, un domaine ou une époque d'un simple clic.">Mots-clés</a>
+                </li>
+                {% url 'random_describe' as url %}
+                <li class="menu-item">
+                    <a href="{{url}}" title="Aidez-nous à décrire le sujet d'une œuvre à l'aide de Wikipédia.">Contribuer</a>
+                </li>
+                {% url 'front_students' as url %}
+                <li class="menu-item">
+                    <a href="{{url}}" title="Consultez les travaux des étudiants faits à partir de la base Joconde.">Galerie de créations</a>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="main-wrapper">
+            <section class="main">
+                <h2 class="http-error">
+                Erreur d'application.
+                </h2>
+            </section>
+            <footer>
+                <ul class="footer-links">
+                    <li>
+                        
+                        <a href="/jocondelab/legal/">Mentions légales</a>
+                    </li>
+                    <li>
+                        
+                        <a href="/jocondelab/credits/">Crédits</a>
+                    </li>
+                </ul>
+                <p>Ce site vous est proposé par
+                    <a href="http://www.culture.gouv.fr/" title="Ministère de la Culture et de la Communication" target="_blank">
+                        <img src="{% get_static_prefix %}jocondelab/img/logo_mcc_footer.png" alt="Logo du Ministère de la Culture et de la Communication" />
+                    </a>
+                    et
+                    <a href="http://www.iri.centrepompidou.fr/" title="Institut de Recherche et d'Innovation" target="_blank">
+                        <img src="{% get_static_prefix %}jocondelab/img/logo_IRI_footer.png" alt="Logo de l'Institut de Recherche et d'Innovation" />
+                    </a>
+                     
+                </p>
+            
+            </footer>
+        </div>
+
+    </body>
+</html>

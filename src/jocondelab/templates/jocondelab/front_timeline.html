@@ -1,0 +1,100 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load compressed %}
+
+{% block js_import %}
+    {% compressed_js 'front-timeline' %}
+{% endblock %}
+
+{% block js_declaration %}
+    {{block.super}}
+    <script type="text/javascript">
+        urls.ajax_years = "{% url 'ajax_years' %}";
+    </script>
+{% endblock %}
+
+{% block css_import %}
+    {% compressed_css 'front-timeline' %}
+{% endblock %}
+
+{% block title %}JocondeLab &raquo; {% trans 'Chronologie' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'Chronologie' %}{% endblock %}
+
+{% block main %}
+            <h2 class="timeline-section-title">{% trans 'Recherche par période' %}</h2>
+            <div class="timeline-section">
+            <div class="timeline-wrapper">
+                <div class="timeline-container">
+                    <canvas class="timeline-canvas"></canvas>
+                    <ul class="timeline-list"></ul>
+                </div>
+                <div class="timeline-slider-container">
+                    <a class="timeline-zoom-button timeline-zoom-in" href="#"></a>
+                    <div class="timeline-slider"></div>
+                    <a class="timeline-zoom-button timeline-zoom-out" href="#"></a>
+                </div>
+            </div>
+            <div class="timeline-arrows">
+                <span class="timeline-span-from">0</span>
+                &mdash;
+                <span class="timeline-span-to">0</span>
+                <a class="timeline-goleft" href="#" data-direction="{% if not current_lang.bidi %}-{% endif %}1">&larr;</a>
+                <a class="timeline-goright" href="#" data-direction="{% if current_lang.bidi %}-{% endif %}1">&rarr;</a>
+            </div>
+            </div>
+            <h2 class="timeline-section-title">{% trans 'Recherche par date' %}</h2>
+            <div class="timeline-section">
+            <div class="timeline-mill-slider"></div>
+            <p class="timeline-mill-p"><button class="timeline-mill-submit">
+                {% trans 'Afficher les contenus de ' %}
+                <span class="timeline-mill-from-year">0</span>
+                {% trans ' à ' %}
+                <span class="timeline-mill-to-year">0</span>
+                {% trans 'texte_post_timeline_years' %}
+            </button></p>
+            </div>
+            
+            <div class="results"></div>
+            
+            <div class="loading-please-wait"><img src="{% static 'jocondelab/img/loader.gif' %}" /></div>
+            <p class="load-more"><a href="#">{% trans 'Afficher plus de résultats' %}</a></p>
+            
+{% endblock %}

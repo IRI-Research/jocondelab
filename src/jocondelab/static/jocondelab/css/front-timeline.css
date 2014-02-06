@@ -1,0 +1,169 @@
+/* -*- coding: utf-8 -*- 
+*
+* Copyright Institut de Recherche et d'Innovation © 2014 
+*
+* contact@iri.centrepompidou.fr
+*
+* Ce code a été développé pour un premier usage dans JocondeLab, projet du 
+* ministère de la culture et de la communication visant à expérimenter la
+* recherche sémantique dans la base Joconde
+* (http://jocondelab.iri-research.org/).
+*
+* Ce logiciel est régi par la licence CeCILL-C soumise au droit français et
+* respectant les principes de diffusion des logiciels libres. Vous pouvez
+* utiliser, modifier et/ou redistribuer ce programme sous les conditions
+* de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA 
+* sur le site "http://www.cecill.info".
+*
+* En contrepartie de l'accessibilité au code source et des droits de copie,
+* de modification et de redistribution accordés par cette licence, il n'est
+* offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+* seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+* titulaire des droits patrimoniaux et les concédants successifs.
+*
+* A cet égard  l'attention de l'utilisateur est attirée sur les risques
+* associés au chargement,  à l'utilisation,  à la modification et/ou au
+* développement et à la reproduction du logiciel par l'utilisateur étant 
+* donné sa spécificité de logiciel libre, qui peut le rendre complexe à 
+* manipuler et qui le réserve donc à des développeurs et des professionnels
+* avertis possédant  des  connaissances  informatiques approfondies.  Les
+* utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+* logiciel à leurs besoins dans des conditions permettant d'assurer la
+* sécurité de leurs systèmes et ou de leurs données et, plus généralement, 
+* à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+*
+* Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
+* pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
+* termes.
+*
+*/
+.timeline-section-title {
+    font-size: 16px; font-weight: bold; margin: 15px 0 0; padding: 5px 10px; background: #ffffff;
+    border-width: 1px; border-color: #cccccc; border-style: solid solid none;
+    border-radius: 10px 10px 0 0; display: inline-block;
+}
+
+.timeline-section {
+    background: #ffffff;
+    background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+    background: -webkit-linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+    background: -moz-linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+    border: 1px solid #cccccc; border-radius: 0 10px 10px 10px; padding: 15px 30px 15px 20px;
+}
+
+.timeline-wrapper {
+    position: relative; height: 420px;
+}
+
+.timeline-container {
+    position: absolute; left: 0; top: 0; bottom: 0; right: 0; overflow: hidden;
+}
+
+.timeline-canvas {
+    width: 100%; height: 100%;
+}
+
+.timeline-list {
+    position: absolute; left: 0; top: 90px;
+}
+
+.timeline-slider-container {
+    position: absolute; right: -30px; width: 30px; top: 60px; bottom: 0;
+}
+
+.timeline-zoom-button {
+    display: block; margin: 5px auto; width: 10px; height: 2px; background: #000000;
+    border-color: #e8e8e8; border-style: solid; border-width: 9px 5px; border-radius: 8px; position: relative;
+}
+
+.timeline-zoom-in:after {
+    content: ""; position: absolute; top: -4px; left: 4px; width: 2px; height: 10px; background: inherit;
+}
+
+.timeline-zoom-button:hover {
+    border-color: #cccccc; background: #ffffff;
+}
+
+.timeline-slider {
+    height: 290px; margin: 8px; font-size: 14px;
+}
+
+.timeline-item {
+    position: relative; height: 26px; width: 100%;
+}
+
+.timeline-item-box {
+    position: absolute; height: 15px; top: 0; margin-bottom: 4px;
+    border-bottom: 8px solid #0000c0; cursor: pointer; font-size: 13px; line-height: 15px;
+}
+
+.timeline-item-label {
+    position: absolute; top: 0; text-align: center; width: 200px; margin-left: -100px; left: 50%;
+}
+
+.timeline-current {
+    border-color: #e06000;
+}
+
+.timeline-mill-slider {
+    font-size: 16px; margin-bottom: 10px;
+}
+
+.timeline-mill-slider .ui-slider-range {
+    background: #ffcc99;
+}
+
+.timeline-mill-p {
+    text-align: right;
+}
+
+.timeline-mill-submit {
+    padding: 5px 10px; line-height: 20px; font-size: 14px;
+}
+
+.timeline-mill-submit span {
+    font-weight: bold;
+}
+
+.timeline-arrows {
+    height: 30px; clear:both; text-align: center; background: #ffffff; font-size: 16px; line-height: 30px;
+}
+
+.timeline-arrows a {
+    line-height: 25px; font-size: 25px; color: #000000; background: #ffffff; padding: 0 10px 5px; font-weight: bold;
+}
+
+.timeline-arrows a:hover {
+    text-decoration: none; background: #999999; color: #ffffff;
+}
+
+a.timeline-goleft {
+    float: left; padding-right: 40px; 
+}
+
+a.timeline-goright {
+    float: right; padding-left: 40px; 
+}
+
+@media screen and (max-height: 500px) {
+    .timeline-wrapper {
+        height: 336px;
+    }
+    
+    .timeline-list {
+        top: 72px;
+    }
+    
+    .timeline-item {
+        height: 20px;
+    }
+    
+    .timeline-item-box {
+        height: 12px; top: 0; margin-bottom: 2px;
+        border-bottom: 5px solid #0000c0; cursor: pointer; font-size: 11px; line-height: 12px;
+    }
+    
+    .timeline-slider {
+        height: 210px;
+    }
+}

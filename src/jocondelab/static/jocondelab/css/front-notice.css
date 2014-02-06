@@ -1,0 +1,234 @@
+/* -*- coding: utf-8 -*- 
+*
+* Copyright Institut de Recherche et d'Innovation © 2014 
+*
+* contact@iri.centrepompidou.fr
+*
+* Ce code a été développé pour un premier usage dans JocondeLab, projet du 
+* ministère de la culture et de la communication visant à expérimenter la
+* recherche sémantique dans la base Joconde
+* (http://jocondelab.iri-research.org/).
+*
+* Ce logiciel est régi par la licence CeCILL-C soumise au droit français et
+* respectant les principes de diffusion des logiciels libres. Vous pouvez
+* utiliser, modifier et/ou redistribuer ce programme sous les conditions
+* de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA 
+* sur le site "http://www.cecill.info".
+*
+* En contrepartie de l'accessibilité au code source et des droits de copie,
+* de modification et de redistribution accordés par cette licence, il n'est
+* offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+* seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+* titulaire des droits patrimoniaux et les concédants successifs.
+*
+* A cet égard  l'attention de l'utilisateur est attirée sur les risques
+* associés au chargement,  à l'utilisation,  à la modification et/ou au
+* développement et à la reproduction du logiciel par l'utilisateur étant 
+* donné sa spécificité de logiciel libre, qui peut le rendre complexe à 
+* manipuler et qui le réserve donc à des développeurs et des professionnels
+* avertis possédant  des  connaissances  informatiques approfondies.  Les
+* utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+* logiciel à leurs besoins dans des conditions permettant d'assurer la
+* sécurité de leurs systèmes et ou de leurs données et, plus généralement, 
+* à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
+*
+* Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
+* pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
+* termes.
+*
+*/
+.notice-images {
+    float: right; width: 33%; margin-top: 15px; text-align: center; line-height: 0;
+}
+
+.notice-images li {
+    margin-bottom: 10px; background: #ffffff; box-shadow: 0 0 3px #999999;
+}
+
+.notice-images img {
+    max-width: 100%; max-height: 420px;
+}
+
+.describe-mode .notice-images {
+    float: left; margin: 15px 0; text-align: center; width: 67%;
+}
+
+.describe-mode .notice-images li {
+    margin: 0; display: block; width: 100%; box-shadow: none; background: transparent;
+}
+
+.describe-mode .notice-images li:nth-child(n+2) {
+    display: inline-block; max-width: 160px; vertical-align: middle;
+}
+
+.describe-mode .notice-images img {
+    max-height: 480px; box-shadow: 0 0 3px #999999; max-width: 95%;
+}
+
+.describe-mode .notice-images li:nth-child(n+2) img {
+    max-height: 160px; margin-top: 5px;
+}
+
+.describe-title {
+    font-size: 18px; margin: 5px 0; clear: both; font-weight: bold;
+}
+
+.notice-colright-wrapper {
+    float: right; width: 67%; margin-top: 10px;
+}
+.describe-mode .notice-colright-wrapper {
+    float: right; width: 33%; margin-top: 10px;
+} 
+
+.notice-colright {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 520px) {
+    .notice-images, .notice-colright-wrapper {
+        width: 100%;
+    }
+    .notice-colright {
+        margin-left: 0;
+    }
+}
+
+.notice-datasheet {
+    font-size: 13px; line-height: 1.2 em;
+}
+
+.datasheet-title {
+    font-size: 15px; font-weight: bold;
+}
+
+.notice-datasheet th {
+    width: 130px; text-align: left; padding-right: 2px;
+}
+
+html[dir=rtl] .notice-datasheet th {
+    text-align: right; padding-right: 0; padding-left: 2px;
+}
+
+html[dir=rtl] .notice-datasheet td {
+    text-align: right;
+}
+
+.notice-datasheet th, .notice-datasheet td {
+    padding-top: 10px;
+}
+
+.notice-term.term-untranslated:after {
+    content: " ;";
+}
+
+.notice-term.term-untranslated:last-child:after {
+    display: none;
+}
+
+.notice-small {
+    font-size: 11px;
+}
+
+.datasheet-group {
+    display: inline;
+}
+
+.datasheet-group:before {
+    content: " | ";
+}
+
+.datasheet-group:first-child:before {
+    display: none;
+}
+
+.notice-contribution-field {
+    font-size: 12px; line-height: 20px; height: 20px; padding: 0 4px; border: 1px solid #999999; margin-bottom: 5px;
+    border-radius: 4px; width: 90%;
+}
+
+.notice-jocondelink {
+    margin: 15px 0; font-size: 16px; color: #0000C0;
+}
+
+.contribution-frame {
+    margin: 10px 0; padding: 3px 10px 5px;
+}
+.contribution-frame .inline {
+    display: inline;
+}
+
+.folksonomy-frame {
+     background: #ffe8c0;
+}
+
+.description-frame {
+    background: #f0f8ff;
+}
+
+.contribution-frame h2 {
+    font-size: 18px;
+}
+
+.contribution-frame p {
+    font-size: 12px; margin: 4px 0;
+}
+
+.contribution-frame .notice-term-list {
+    font-size: 14px; line-height: 16px;
+}
+.contribution-frame .notice-term-list .notice-term{
+    margin-left: 4px;
+}
+
+.notice-term.contribution-null {
+    background: transparent; font-style: italic;
+}
+
+.contribution-vote {
+    float: right; height: 16px; width: 13px; margin-left: 3px;
+}
+
+html[dir=rtl] .contribution-vote {
+    float: left; margin-left: 0; margin-right: 3px;
+}
+
+.contribution-upvote, .contribution-downvote {
+    display: block; background-image: url(../img/vote-sprite.png); width: 11px; height: 6px;
+}
+
+.contribution-upvote {
+    margin-bottom: 2px;
+}
+
+.contribution-downvote {
+    background-position: 0 -6px;
+}
+
+.contribution-upvote:hover {
+    background-position: -11px 0;
+}
+
+.contribution-downvote:hover {
+    background-position: -11px -6px;
+}
+
+.contribution-remove {
+    display: block; height: 16px; line-height: 16px; font-size: 12px; font-weight: bold; text-align: center;
+}
+
+.button-links {
+    text-align: right; margin: 5px 0;
+}
+
+.back-button {
+    display: inline-block; margin: 5px 0;
+}
+
+.button-links a, .back-button {
+    color: #ffffff; font-size: 14px; font-weight: bold; padding: 4px 6px;
+    background: #202060; border-radius: 6px;
+}
+
+.button-links a:hover, .back-button:hover {
+    background: #404080; color: #cccccc;
+}

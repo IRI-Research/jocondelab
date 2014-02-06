@@ -1,0 +1,85 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+
+{% block title %}JocondeLab &raquo; {% trans 'À propos' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'À propos' %}{% endblock %}
+
+{% block main %}
+<div class="about-text">
+  {% blocktrans %}
+    <h1>JocondeLab - À propos</h1>
+    <h5>Le site internet JocondeLab est le fruit d’une expérimentation menée par le ministère de la Culture et de la Communication. Il vise à démontrer les possibilités du web sémantique ou « Web 3.0 » et de la mise en relation de données culturelles « liées », tant en termes de multilinguisme, que d'ergonomie et d’interactivité.</h5>
+    <h4>Le projet</h4>
+    <p>L'expérimentation vise notamment à faciliter l'accès aux ressources culturelles françaises auprès de nouveaux publics et apporte une contribution significative à la diversité linguistique en développant l'offre multilingue du ministère de la Culture et de la communication, sans pour autant qu’il soit nécessaire de traduire les données puisque celles-ci trouvent leur équivalent grâce à Wikipédia.</p>
+    <p>Elle donne accès en 14 langues (français, anglais, italien, espagnol, allemand, portugais, arabe, russe, japonais, chinois, catalan, basque, breton et occitan), à plus de 300 000 notices illustrées extraites de Joconde, catalogue des collections des musées de France, qui est la base de données patrimoniale la plus interrogée du ministère de la Culture (plus d'un million de sites visiteurs en 2012).</p>
+    <p>Elle permet également d'explorer de nouvelles formes de navigation au sein des ressources culturelles en ligne, d'expérimenter l'indexation collaborative et de compléter les informations de Joconde avec des données de l'encyclopédie en ligne Wikipédia, plébiscitée par le public (plus de 20 millions de visiteurs français par mois).</p>
+    <p>Cette expérience a vocation à servir d'exemple aux autres sites internet patrimoniaux et permettra de moderniser les outils utilisés au sein du ministère pour manipuler les ressources culturelles.</p>
+    <h4>Les acteurs impliqués</h4>
+    <p>Ce projet associe&nbsp;:</p>
+    <p>Plusieurs services du ministère de la Culture et de la Communication&nbsp;:</p>
+    <ul>
+        <li>La mission langues et numérique de la délégation générale à la langue française et aux langues de France, en tant que maître d’ouvrage du projet et responsable du programme sémantisation au ministère ;</li>
+        <li>Le bureau de la diffusion numérique des collections, au sein du service des musées et de la direction générale du patrimoine, administrateur de la base Joconde, qui assure la correspondance ou « liage » entre les ressources de Wikipédia et les différents lexiques utilisés sur Joconde, ce qui représente environ 30 000 termes sémantisés ;</li>
+        <li>La sous-direction des systèmes d'information du secrétariat général du ministère, qui assure la maîtrise d’œuvre du projet ;</li>
+        <li>Le département des programmes numériques du service de coordination des politiques culturelles et de l'innovation, au secrétariat général, qui apporte son expertise à travers son expérience de liage de données réalisée pour le site Histoire des Arts, HDA-Lab ;</li>
+    </ul>
+    <p>L'institut de recherche et d'innovation du Centre Pompidou, qui développe les outils utilisés par le ministère de la Culture pour le liage des ressources et le site internet JocondeLab ;</p>
+    <p>Les étudiants de Gobelins, l'École de l'image, qui ont bénéficié de la possibilité de contribuer à la galerie d'innovations JocondeLab dans le cadre d'un projet pédagogique trimestriel.</p>
+    <h4>Le contexte du projet</h4>
+    <p>L'expérimentation JocondeLab et le programme sémantisation s'inscrivent dans le cadre du volet innovation du schéma directeur des systèmes d'information du ministère. Ils s’appuient sur l'extraction de Wikipédia, <a target="_blank" href="http://www.dbpedia.fr/">DBPédia en français</a>, et sur le partenariat stratégique <a target="_blank" href="http://www.semanticpedia.org/">Sémanticpédia</a> inauguré le 19 novembre 2012 par Aurélie Filippetti, ministre de la Culture et de la Communication, avec l'organisme public de recherche Inria et l'association Wikimédia France.</p>
+    <p>D’autres expérimentations sur le liage de données sont et seront menées dans le cadre de ce programme qui est inscrit au processus ministériel de modernisation et de simplification de l’État.</p>
+    <h4>Avertissement</h4>
+    <p>Le site JocondeLab a été optimisé pour les navigateurs internet les plus récents. Un effort particulier a été porté sur l'ergonomie de l'interface pour les terminaux mobiles, pour lesquels toutes les fonctionnalités proposées sont disponibles.</p>
+    <p>Dans la logique de l'encyclopédie collaborative, il a semblé utile d'offrir aux visiteurs du site JocondeLab la possibilité de participer à une expérimentation d'enrichissement du contenu des notices. Deux modes de contribution sont proposés au moyen des mots clés issus de Wikipédia&nbsp;:</p>
+    <ul>
+        <li>à partir de toute notice affichée dans JocondeLab&nbsp;: possibilité d'ajouter vos mots clés sur l'ensemble des informations&nbsp;; Les mots clés restent visibles d'une session à l'autre par les internautes&nbsp;; il est possible de voter pour ou contre un terme&nbsp;;</li>
+        <li>à partir de l'onglet "contribuer"&nbsp;: possibilité de décrire le sujet représenté d'un corpus d'environ 800 notices (arts figurés de la fin du XIXe siècle)&nbsp;; Les mots clés restent visibles uniquement durant le temps de la session de l'utilisateur.</li>
+    </ul>
+    <p>Les contributions demeurent anonymes. Les mots clés sont sauvegardés pour pouvoir être étudiés dans le cadre de l'expérience JocondeLab.</p>
+    <p>Le site internet JocondeLab est une expérimentation. À ce titre, il doit permettre d'étudier certaines fonctionnalités et pratiques. En tant que laboratoire expérimental, il présente certaines limites&nbsp;:</p>
+    <ul>
+        <li>Les temps de réponse peuvent varier en fonction du nombre de résultats de recherche&nbsp;;</li>
+        <li>L'absence et la nature des ressources DBPédia en français affectent parfois l'affichage de certaines informations pourtant présentes sur Wikipédia. Notamment, les informations de DBPédia en français déterminent les intervalles de dates de la frise chronologique&nbsp;: ainsi, pour un souverain, on aura tantôt les dates de vie et de mort, tantôt les dates de règne&nbsp;;</li>
+        <li>La quantité d'informations proposées au visiteur sur JocondeLab dépend de la richesse des ressources disponibles dans chaque langue sur Wikipédia. Le nombre de mots clés est ainsi conditionné à la présence d'articles sur l'encyclopédie dans la langue choisie.</li>
+    </ul>
+    <p>Les visiteurs du site JocondeLab sont donc invités à contribuer à Wikipédia afin d'améliorer la pertinence des sites internet proposant des ressources liées aux données de l'encyclopédie en ligne.</p>
+  {% endblocktrans %}
+</div>
+{% endblock %}

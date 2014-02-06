@@ -1,0 +1,309 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load compressed %}
+
+{% block css_import %}
+    {% compressed_css 'front-students' %}
+{% endblock %}
+
+{% block title %}JocondeLab &raquo; {% trans "Galerie de créations" %}{% endblock %}
+
+{% block js_declaration %}
+    {% compressed_js 'front-students' %}
+    {{block.super}}
+    <script type="text/javascript">
+        $(function() {
+            bindResultsMouseover();
+        });
+    </script>
+{% endblock %}
+{% block js_import %}
+{% endblock %}
+
+{% block breadcrumbs %}{% trans "Galerie de créations" %}{% endblock %}
+
+{% block main %}
+<div class="results">
+	<h2 class="resultcount">{% trans "Les créations des étudiants 2013 d'un des départements multimédia de Gobelins, l'école de l'image, qui a participé à l'expérimentation JocondeLab." %}</h2>
+</div>
+<ul class="notice-list clearfix">
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=benaddi_bardon" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/benaddi_bardon.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=benaddi_bardon" class="update-ids"><span class="notice-title">Maud Benaddi – Clément Bardon</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=boyer_bonnot" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/boyer_bonnot.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=boyer_bonnot" class="update-ids"><span class="notice-title">Jason Boyer - Bonnot Nicolas</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=chan_budain" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/chan_budain.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=chan_budain" class="update-ids"><span class="notice-title">Bernadette Chan – kevin Budain</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=deprund_cayla" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/deprund_cayla.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=deprund_cayla" class="update-ids"><span class="notice-title">Jonas Deprund – Bertrand Cayla</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=devoos_locatelli" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/devoos_locatelli.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=devoos_locatelli" class="update-ids"><span class="notice-title">Jérémie Devoos – Marc-Antoine Locatelli</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=hebrard_chaumont" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/hebrard_chaumont.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=hebrard_chaumont" class="update-ids"><span class="notice-title">Olivier Hebrard – Etienne Chaumont</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=hetch_marchadier" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/hetch_marchadier.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=hetch_marchadier" class="update-ids"><span class="notice-title">Léonard Hetsch – Laure Marchadier</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=huz_muckensturm" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/huz_muckensturm.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=huz_muckensturm" class="update-ids"><span class="notice-title">Lory Huz – Julie Muckensturm</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=josseau_pouyet" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/josseau_pouyet.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=josseau_pouyet" class="update-ids"><span class="notice-title">Thomas Josseau – Sylvain Pouyet</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=lefevbre_delcros" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/lefevbre_delcros.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=lefevbre_delcros" class="update-ids"><span class="notice-title">Jérémy Lefebvre – Jordan Delcros</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=minga_honingstein" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/minga_honingstein.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=minga_honingstein" class="update-ids"><span class="notice-title">Alexane Minga – Samuel Honingstein</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=moreira_rimbert" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/moreira_rimbert.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=moreira_rimbert" class="update-ids"><span class="notice-title">Katia Moreira - Maxime Rimbert</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=obe_ryckeghem" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/obe_ryckeghem.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=obe_ryckeghem" class="update-ids"><span class="notice-title">Louise Obé – Maxime Rickeghem</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=piquemal_jasmin" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/piquemal_jasmin.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=piquemal_jasmin" class="update-ids"><span class="notice-title">Hugo Piquemal – Guillaume Jasmin</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=reucherand_terray" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/reucherand_terray.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=reucherand_terray" class="update-ids"><span class="notice-title">Sylvain Reucherand – Thibault Terray</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=rouffet_anglade" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/rouffet_anglade.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=rouffet_anglade" class="update-ids"><span class="notice-title">Marjorie Rouffet – Antonin Anglade</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=siestrunck_penrath" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/siestrunck_penrath.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=siestrunck_penrath" class="update-ids"><span class="notice-title">Marthe Siestrunck – Jean-baptiste Penrath</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=thome_sonna" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/thome_sonna.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=thome_sonna" class="update-ids"><span class="notice-title">Tohme Athanassios – Sonna Glenn</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=vimont_tessier" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/vimont_tessier.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=vimont_tessier" class="update-ids"><span class="notice-title">Benjamin Vimont – Alexis Tessier</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+  <li class="notice-item">
+    <div class="notice-contents">
+      <a href="{% url 'front_students_group' %}?g=vittori_thenot" class="update-ids">
+        <img class="notice-image" alt="" src="{% static 'jocondelab/students/thumbnails/vittori_thenot.jpg' %}" />
+      </a>
+      <div class="notice-metadata">
+        <h2>
+          <a href="{% url 'front_students_group' %}?g=vittori_thenot" class="update-ids"><span class="notice-title">Nicolas Vittori – Goeffrey Thenot</span></a>
+        </h2>
+      </div>
+    </div>
+  </li>
+</ul>
+
+{% endblock %}

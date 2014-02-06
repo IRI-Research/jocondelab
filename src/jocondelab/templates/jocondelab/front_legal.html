@@ -1,0 +1,159 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+
+{% block title %}JocondeLab &raquo; {% trans 'Mentions légales' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'Mentions légales' %}{% endblock %}
+
+{% block js_declaration %}{% endblock %}
+
+{% block main %}
+<div class="about-text">
+	<h1>Mentions légales JocondeLab</h1>
+	<h4>1. Éditeur</h4>
+	<p><span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> est une publication du ministère de la Culture et de la Communication.</p>
+	<h4>2. Hébergement</h4>
+	<p><span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> est hébergé par l’Institut de Recherche et d’Innovation.</p>
+	<h4>3. Direction de la publication</h4>
+	<p>Le projet <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> est dirigé par la délégation générale à la langue française et aux 
+	langues de France en collaboration avec le service des musées de France de la direction générale du patrimoine et le secrétariat général.</p> 
+    <p>Directeur de la publication : Xavier NORTH, délégué général à la langue française et aux langues de France.</p>
+    <h4>4. Adresse</h4>
+	<p>Ministère de la Culture et de la Communication<br/>Délégation générale à la langue française et aux langues de France<br/>6 rues des Pyramides 75001 Paris</p>
+	<h4>CONDITIONS GENERALES D’UTILISATION</h4>
+	<p><span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> est le fruit d’une expérimentation menée par le ministère de la Culture et de la Communication. 
+	Il vise à démontrer les possibilités du web sémantique ou &laquo;&nbsp;Web 3.0&nbsp;&raquo; et de la mise en relation de données culturelles &laquo;&nbsp;liées&nbsp;&raquo;, 
+	tant en termes de multilinguisme, que d'ergonomie et d’interactivité.</p>
+	<p>L'expérimentation vise notamment à faciliter l'accès aux ressources culturelles françaises auprès de nouveaux publics et 
+	apporte une contribution significative à la diversité linguistique en développant l'offre multilingue du 
+	ministère de la Culture et de la communication, puisqu’elle donne accès en 14 langues (français, anglais, italien, espagnol, 
+	allemand, portugais, arabe, russe, japonais, chinois, catalan, basque, breton et occitan), à plus de 300 000 notices 
+	illustrées extraites de Joconde, catalogue des collections des musées de France, qui est la base de données patrimoniale 
+	la plus interrogée du ministère de la Culture (plus d'un million de sites visiteurs en 2012).</p>
+	<p>Elle permet également d'explorer de nouvelles formes de navigation au sein des ressources culturelles en ligne, d'expérimenter l'indexation 
+	collaborative et de compléter les informations de Joconde avec des données de l'encyclopédie en ligne Wikipédia, plébiscitée par le public (plus de 
+	20 millions de visiteurs français par mois).</p>
+	<p>Toute personne qui accède à <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span>, à l’une des offres éditoriales ou service associés accepte et 
+	s’engage à respecter, sans restriction, ni réserve, les présentes conditions générales d’utilisation en vigueur.</p>
+	<h4>Article 1. Définitions</h4>
+	<p><span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> : désigne le site accessible à l’adresse 
+	suivante <a href="http://jocondelab.iri-research.org/jocondelab">http://jocondelab.iri-research.org/jocondelab</a></p>
+	<p>&laquo;&nbsp;Utilisateur&nbsp;&raquo; : désigne toute personne physique accédant à <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> 
+	et/ou utilisant une des offres éditoriales ou services associés au présent site ;</p>
+	<p>&laquo;&nbsp;Partenaire(s)&nbsp;&raquo; : désigne tout partenaire éditorial et/ou de visibilité du site. </p>
+	<p>&laquo;&nbsp;Contenus&nbsp;&raquo; : désigne l’ensemble des données et plus généralement des informations diffusées sur <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ;</p>
+	<p>&laquo;&nbsp;Services&nbsp;&raquo; : désigne l’une ou l’ensemble des fonctionnalités fournie sur le site et accessible en ligne à partir de <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ;</p>
+	<h4>Article 2. Objet</h4>
+    <p>Les présentes Conditions Générales d’Utilisation ont pour objet de définir les modalités d’accès et d’utilisation du  site par 
+    l’Utilisateur et de mise à disposition des Contenus, des Offres Éditoriales et Services par <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span>.</p>
+    <h4>Article 3. Accès</h4>
+    <p>Tout Utilisateur accède librement et gratuitement au site, aux Services et aux offres éditoriales associées.</p>
+    <h4>Article 4. Données à caractère personnel</h4>
+    <p>Aucune donnée à caractère personnel n’est collectée sur ce site internet.</p>
+    <h4>Article 5. Propriété intellectuelle</h4>
+    <p>Les textes et images utilisés sur le site <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> proviennent de la base Joconde (catalogue collectif des collections des 
+    musées de France) : <a href="http://www.culture.gouv.fr/documentation/joconde/fr/pres.htm" target="_blank">http://www.culture.gouv.fr/documentation/joconde/fr/pres.htm</a>. 
+    La base Joconde regroupe près de 500 000 notices d’objets.</p> 
+    <p>Les notices et les images diffusées au sein de Joconde, catalogue collectif des collections des musées de France, émanent des musées 
+    participants et ont été retraitées avant mise en ligne par le bureau de la diffusion numérique des collections. Certains contenus sont couverts 
+    par des droits d’auteur et font l’objet de règles de réutilisation strictes. Tous les autres éléments présents sur <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> 
+    et notamment les illustrations relatives aux artistes, mots-clés, pays, régions, villes, sujets représentés, catégories et époques ainsi 
+    que tous les textes disponibles en plusieurs langues et relatifs à ces mêmes concepts proviennent de l'encyclopédie en ligne Wikipédia 
+    (<a href="http://fr.wikipedia.org" target="_blank">http://fr.wikipedia.org</a>) à travers une extraction automatisée disponible en ligne sur le site internet dbpedia.fr, 
+    sont librement réutilisables selon les conditions de la licence libre Creative Commons BY-SA 3.0 ou sont entrées dans le domaine public.
+    (<a href="http://creativecommons.org/publicdomain/zero/1.0/deed.fr" target="_blank">http://creativecommons.org/publicdomain/zero/1.0/deed.fr</a>)</p>
+    <p><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="cc-by-sa" /></p>
+	<h4>Article 6. Liens hypertextes</h4>
+	<p>6.1 - <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> fournit des liens hypertextes profonds pointant vers le site Wikipedia. Ces liens ou références ne constituent 
+	ni une approbation ni une validation de leurs contenus. <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ne pourra en aucun cas être tenu responsable de la teneur des 
+	pages du site, et ne sera tenu responsable d’aucun dommage ou préjudice en découlant. Le fait de proposer des hyperliens profonds 
+	vers d’autres sites fournis aux Utilisateurs uniquement par pure commodité et n’engendre à ce titre aucune obligation de quelque 
+	nature que ce soit à la charge de <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> qui ne dispose d’aucun moyen de contrôle et de surveillance des sites ainsi référencés 
+	ainsi que de leurs évolutions et mises à jour. Les Utilisateurs doivent se reporter aux mentions légales et conditions générales d’utilisations 
+	des sites des institutions partenaires.</p>
+    <p>6.2 -  Liens hypertextes profonds vers <a href="http://jocondelab.iri-research.org/jocondelab">http://jocondelab.iri-research.org/jocondelab</a>. 
+    La création de liens hypertextes en direction de <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> est libre à la condition qu’elle ne porte pas atteinte aux intérêts 
+    matériels ou moraux du ministère de la Culture et de la Communication et qu’elle ne créé pas de confusion sur la source des Services et/ou Contenus.</p> 
+	<h4>Article 7. Responsabilités</h4>
+	<p>7.1 - Garanties et Responsabilité. <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> s’efforce d’assurer au mieux que les 
+	informations accessibles par l’intermédiaire du site soient exactes et mises à jour. Cependant, <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ne 
+	garantit en aucune manière que ces informations soient exactes, complètes et à jour. <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> n’assure
+	aucune garantie, expresse ou tacite, concernant tout ou partie du site. <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> décline 
+	également toute responsabilité concernant l’accès et le contenu des sites liés au site.</p>
+	<p>En aucun cas, <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ne peut être tenu pour responsable d’un quelconque dommage direct 
+	ou indirect, quelle qu’en soit la cause, origine, nature et conséquence, découlant de la consultation ou de l’utilisation du site. 
+	Notamment, <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> décline toute responsabilité en cas d’interruption 
+	ou d’inaccessibilité du site, de survenance de bogues, de tout dommage résultant d’actes frauduleux de tiers à partir du site.</p>
+    <p><span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ne maîtrise pas les risques liés au fonctionnement d’Internet 
+    et attire votre attention sur l’existence d’éventuels risques en terme de confidentialité des données transitant via ce réseau.</p>
+    <p>7.2 - Les éditeurs et les auteurs du site <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ne sauraient être 
+    tenus responsables des erreurs ou omissions dans les informations diffusées ou des problèmes techniques rencontrés sur 
+    le site et sur tous les autres sites vers lesquels nous établissons des liens, ou de toute interprétation des informations 
+    publiées sur ces sites, ainsi que des conséquences de leur utilisation.</p>
+    <p>Ce site internet constitue une expérimentation et certaines informations issues directement de l'encyclopédie Wikipédia 
+    peuvent être incomplètes ou inexistantes, notamment pour certaines langues moins documentées. Nous vous invitons à 
+    contribuer en ligne à l'encyclopédie Wikipédia (lien : <a href="http://fr.wikipedia.org/wiki/Aide:Premiers_pas" target="_blank">http://fr.wikipedia.org/wiki/Aide:Premiers_pas</a>) 
+    pour améliorer le fonctionnement et la pertinence du site <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span>.</p>
+    <p>7.3 – Responsabilité de l’Utilisateur. L’Utilisateur est seul responsable de l’utilisation des fonctionnalités offertes 
+    par le site ainsi que de tout dommage subi par son ordinateur ou de toute perte de données consécutive à la consultation et 
+    l’utilisation de <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span>, des Offres Éditoriales et/ou des Services qui y sont associés.</p>
+    <p>7.4 – Responsabilité technique. <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> ne pourra en aucun cas 
+    être tenu pour responsable de problèmes liés aux systèmes d’informations notamment la fiabilité de la transmission des 
+    données, la sécurité des transmissions, le temps d’accès, la présence de virus informatique sur le site, sans que cette énumération soit limitative.</p>
+	<h4>8. Accessibilité</h4>
+    <p>Ce site internet est conforme aux spécifications du W3C relatives au standard HTML5. Un effort particulier a été porté sur 
+    l’accessibilité du site <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> aux personnes en situation de handicap. 
+    Les consignes de conception accessibles présentées dans le Référentiel Général d'Accessibilité pour les Administrations (RGAA) ont 
+    été suivies dans la mesure du possible, certaines fonctionnalités expérimentales présentées sur <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span>
+    pouvant fonctionner de manière dégradée sur certains navigateurs adaptés.</p>
+    <h4>9. Données illicites</h4>
+    <p>Conformément à la loi pour la confiance dans l’économie numérique du 21 juin 2004, le site <span class="italic">&laquo;&nbsp;JocondeLab&nbsp;&raquo;</span> permet 
+    à tout individu ou visiteur de signaler tout contenu susceptible de revêtir les caractères des infractions visées aux cinquième et 
+    huitième alinéas de l’article 24 de la loi du 29 juillet 1881 sur la liberté de presse et aux articles 227-23 et 227-24 du Code pénal.</p>
+    <p>Pour nous signaler un tel contenu, nous vous invitons à nous contacter en envoyant un message à contact en 
+    précisant le lien vers le contenu que vous estimez illicite.</p> 
+	<h4>10. Loi Applicable</h4>
+    <p>Les présentes Conditions Générales d’Utilisation sont soumises au droit français.</p>
+    <p class="italic"><b>Avertissement</b> : Les mentions légales telles qu’elles sont rédigées ci-dessous ainsi que les mentions légales du portail 
+    Culture.fr ont vocation à être prochainement modifiées compte tenu de la politique du ministère de la Culture et de la Communication en 
+    faveur de l’ouverture et du partage des données publiques.</p> 
+    <p>Nous nous excusons pour cet inconvénient et nous vous prions de bien vouloir consulter régulièrement la présente page afin de vous tenir 
+    informés des prochaines modifications des mentions légales.</p>
+</div>
+{% endblock %}

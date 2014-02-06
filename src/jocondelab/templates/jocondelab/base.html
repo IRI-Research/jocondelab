@@ -1,0 +1,121 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% load i18n %}
+{% load static %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{LANGUAGE_CODE}}" lang="{{LANGUAGE_CODE}}">
+<head>
+{% block head %}
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="content-language" content="{{LANGUAGE_CODE}}" />
+    <link rel="SHORTCUT ICON" href="{% static 'jocondelab/img/favicon.ico' %}" />
+    <title>{% block title %}JOCONDELAB-BO{% endblock %}</title>
+    {% block js_import %}
+    <script type="text/javascript" src="{% url 'i18n_javascript_catalog' %}"></script>
+    <script type="text/javascript" src="{% static 'jocondelab/js/jocondelab.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jocondelab/lib/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jocondelab/lib/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jocondelab/lib/jquery.jstree.js' %}"></script>
+    {% endblock %}
+        
+    {% block css_import %}
+    <link rel="stylesheet" href="{% static 'jocondelab/css/smoothness/jquery-ui-1.10.3.custom.min.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'jocondelab/css/style.css' %}" type="text/css"/>
+    {% endblock %}
+    
+    {% block css_declaration %}
+    <style type="text/css">
+        .rounded {
+            behavior:url("{% static 'jocondelab/css/border-radius.htc' %}");
+        }
+    </style>
+    {% endblock %}
+    
+    
+    {% block js_declaration %}
+    <script type="text/javascript">
+    var term_tree_json_url = "{% url 'term_tree' 0 %}";
+    var term_tree_valid_thesaurus = {% if term_tree_valid_thesaurus %}JSON.parse('{{ term_tree_valid_thesaurus | safe }}'){% else %}[]{% endif %} ;
+    </script>
+    {% endblock %}
+    
+{% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="container">
+<div id="header">      
+    {% block header %}
+    <div id="header_left">
+    	<p><a href="{% url 'bo_home' %}">Jocondelab<span class="hda_blue">BO</span></a></p>
+    </div>
+    {% endblock %}
+</div>
+<div id="content" class="span-24 last">
+    <div id="toolbar">
+    {% block toolbar %}
+    {% if user.is_authenticated %}
+    <ul>
+    <li><a href="{% url 'bo_home' %}">Home</a></li>
+    <li><span style="float:right;">{{user.username}}&nbsp;|&nbsp;<a href="{% url 'joconde_logout' %}" >Se déconnecter</a>{% if user.is_staff %}&nbsp;|&nbsp;<a href="{% url 'admin:index' %}" >admin</a>{% endif %}</span></li>
+    </ul>
+    {% endif %}
+    {% endblock %}
+    </div>
+    <div id="inner_content">
+    {% block content %}
+    {% endblock %}
+    </div>
+</div>
+<div id="footer" class="span-24 last">
+    {% block footer %}
+    <div class="footer_img">
+    <a href="http://www.iri.centrepompidou.fr" target="_blank"><img src="{% static 'jocondelab/img/logo_IRI_footer.png' %}" alt="Logo IRI" /></a>
+    <a href="http://www.culturecommunication.gouv.fr" target="_blank"><img src="{% static 'jocondelab/img/logo_mcc_footer.png' %}" alt="Logo Ministère de la Culture et de la Communication" /></a>
+    </div>
+    <div style="float: right; text-align: right;" class="small" id="copyright_version">
+        <div>©2013 <a style="text-decoration: none; color: #4F5155;" href="http://www.iri.centrepompidou.fr" target="_blank">IRI</a></div>
+        <div id="versionwrapper"><span class="version" id="version">{{VERSION}}</span></div>
+    </div>
+    {% endblock %}
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

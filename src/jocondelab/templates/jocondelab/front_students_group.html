@@ -1,0 +1,472 @@
+{# -*- coding: utf-8 -*- #}
+
+{# Copyright Institut de Recherche et d'Innovation © 2014                    #}
+{# contact@iri.centrepompidou.fr                                             #}
+
+{# Ce code a été développé pour un premier usage dans JocondeLab, projet du  #}
+{# ministère de la culture et de la communication visant à expérimenter la   #}
+{# recherche sémantique dans la base Joconde                                 #}
+{# (http://jocondelab.iri-research.org/).                                    #}
+
+{# Ce logiciel est régi par la licence CeCILL-C soumise au droit français et #}
+{# respectant les principes de diffusion des logiciels libres. Vous pouvez   #}
+{# utiliser, modifier et/ou redistribuer ce programme sous les conditions    #}
+{# de la licence CeCILL-C telle que diffusée par le CEA, le CNRS et l'INRIA  #}
+{# sur le site "http://www.cecill.info".                                     #}
+
+{# En contrepartie de l'accessibilité au code source et des droits de copie, #}
+{# de modification et de redistribution accordés par cette licence, il n'est #}
+{# offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons, #}
+{# seule une responsabilité restreinte pèse sur l'auteur du programme,  le   #}
+{# titulaire des droits patrimoniaux et les concédants successifs.           #}
+
+{# A cet égard  l'attention de l'utilisateur est attirée sur les risques     #}
+{# associés au chargement,  à l'utilisation,  à la modification et/ou au     #}
+{# développement et à la reproduction du logiciel par l'utilisateur étant    #}
+{# donné sa spécificité de logiciel libre, qui peut le rendre complexe à     #}
+{# manipuler et qui le réserve donc à des développeurs et des professionnels #}
+{# avertis possédant  des  connaissances  informatiques approfondies.  Les   #}
+{# utilisateurs sont donc invités à charger  et  tester  l'adéquation  du    #}
+{# logiciel à leurs besoins dans des conditions permettant d'assurer la      #}
+{# sécurité de leurs systèmes et ou de leurs données et, plus généralement,  #}
+{# à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.        #}
+
+{# Le fait que vous puissiez accéder à cet en-tête signifie que vous avez    #}
+{# pris connaissance de la licence CeCILL-C, et que vous en avez accepté les #}
+{# termes.                                                                   #}
+{% extends "jocondelab/front_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load compressed %}
+
+{% block js_import %}
+{% endblock %}
+
+
+{% block css_import %}
+    {% compressed_css 'front-students-group' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'jocondelab/lib/videojs/video-js.min.css' %}" />
+{% endblock %}
+
+{% block title %}JocondeLab &raquo; {% trans "Galerie de créations" %}{% endblock %}
+
+{% block breadcrumbs %}{% trans "Galerie de créations" %}{% endblock %}
+
+{% block js_declaration %}
+    {% compressed_js 'front-students-group' %}
+    {{block.super}}
+    <script type="text/javascript">
+    
+    function getURLParameter(name) {
+        return decodeURI(
+            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+        );
+    }
+    $(document).ready(function(){
+    	
+    	videojs.options.flash.swf = "{% static 'jocondelab/lib/videojs/video-js.swf' %}";
+    	
+    	var group_data = 
+    	{
+    		"benaddi_bardon":
+    		{
+    	    	 "authors":"Maud Benaddi – Clément Bardon",
+    	    	 "text":"",
+    	    	 "images":
+    	    		 [
+    	    		  "benaddi_bardon/benaddi_bardon1.png",
+    	    		  "benaddi_bardon/benaddi_bardon2.png",
+    	    		  "benaddi_bardon/benaddi_bardon3.png",
+    	    		  "benaddi_bardon/benaddi_bardon4.png",
+    	    		  "benaddi_bardon/benaddi_bardon5.png",
+    	    		  "benaddi_bardon/benaddi_bardon6.png",
+    	    		  "benaddi_bardon/benaddi_bardon7.png",
+    	    		  "benaddi_bardon/benaddi_bardon8.png"
+    	    	     ],
+    	    	 "video":"",
+    	    	 "docs":
+    	    		 [
+    	    	     ]
+    	     },
+    	     "boyer_bonnot":
+    	     {
+                 "authors":"Jason Boyer - Nicolas Bonnot",
+                 "text":"Pitch : Découvrez l’Art autrement, à travers une oeuvre et son auteur, lancez des sujets, échangez et notez ce qui vous semble pertinent.",
+                 "images":
+                     [
+                      "boyer_bonnot/boyer_bonnot1.jpg",
+                      "boyer_bonnot/boyer_bonnot2.jpg",
+                      "boyer_bonnot/boyer_bonnot3.jpg",
+                      "boyer_bonnot/boyer_bonnot4.jpg",
+                      "boyer_bonnot/boyer_bonnot5.jpg",
+                      "boyer_bonnot/boyer_bonnot6.jpg",
+                      "boyer_bonnot/boyer_bonnot7.png",
+                      "boyer_bonnot/boyer_bonnot8.png",
+                      "boyer_bonnot/boyer_bonnot9.png"
+                     ],
+                 "video":"boyer_bonnot/boyer_bonnot.mp4",
+                 "docs":
+                     [
+                      {"label":"Dossier.pdf", "url":"boyer_bonnot/dossier_bonnot_boyer_sitejoconde.pdf"}
+                     ]
+             },
+             "chan_budain":
+             {
+                 "authors":"Bernadette Chan – Kevin Budain",
+                 "text":"JocondeLab est un outil permettant à l'utilisateur de retrouver une oeuvre dont il ne se souvient plus le plus simplement et rapidement possible.",
+                 "images":[],
+                 "video":"chan_budain/chan_budain.mp4",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"chan_budain/synthese_site.pdf"}
+                     ]
+             },
+             "deprund_cayla":
+             {
+                 "authors":"Jonas Deprund – Bertrand Cayla",
+                 "text":"",
+                 "images":
+                     [
+                      "deprund_cayla/deprund_cayla1.jpg",
+                      "deprund_cayla/deprund_cayla2.jpg",
+                      "deprund_cayla/deprund_cayla3.jpg",
+                      "deprund_cayla/deprund_cayla4.jpg"
+                     ],
+                 "video":"deprund_cayla/deprund_cayla.mp4",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"deprund_cayla/jocondelab_deprund_cayla.pdf"}
+                     ]
+             },
+             "devoos_locatelli":
+             {
+                 "authors":"Jérémie Devoos – Marc-Antoine Locatelli",
+                 "text":"Pitch : JocondeLab est un outil qui propose une navigation simple et chronologique au sein d’une grille d’images présentant une vision globale de l'histoire de l’art organisée et hiérarchisée en fonction des intérêts de l'utilisateur.",
+                 "images":
+                     [
+                      "devoos_locatelli/1.jpg",
+                      "devoos_locatelli/2.jpg",
+                      "devoos_locatelli/3.jpg",
+                      "devoos_locatelli/4.jpg",
+                      "devoos_locatelli/5.jpg",
+                      "devoos_locatelli/6.jpg",
+                      "devoos_locatelli/7.jpg"
+                     ],
+                 "video":"devoos_locatelli/demo.mp4",
+                 "docs":
+                     [
+                      {"label":"Présentation finale.pdf", "url":"devoos_locatelli/presentation_finale.pdf"}
+                     ]
+             },
+             "hebrard_chaumont":
+             {
+                 "authors":"Olivier Hebrard – Etienne Chaumont",
+                 "text":"",
+                 "images":
+                     [
+                      "hebrard_chaumont/0001.png",
+                      "hebrard_chaumont/0002.png",
+                      "hebrard_chaumont/0003.png",
+                      "hebrard_chaumont/0004.png",
+                      "hebrard_chaumont/0005.png",
+                      "hebrard_chaumont/0006.png"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"hebrard_chaumont/synthese_joconde_finale.pdf"}
+                     ]
+             },
+             "hetch_marchadier":
+             {
+                 "authors":"Léonard Hetsch – Laure Marchadier",
+                 "text":"Pitch : JocondeLab est une application permettant à l'utilisateur de parcourir la base Joconde, et de  sélectionner des œuvres d'art afin de constituer sa propre collection artistique – basé sur le thème de son choix, qu'il peut alors partager avec le monde entier.",
+                 "images":
+                     [
+                     ],
+                 "video":"hetch_marchadier/jocondeLab_video_presentation.mp4",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"hetch_marchadier/synthese_marchadier_hetsch.pdf"}
+                     ]
+             },
+             "huz_muckensturm":
+             {
+                 "authors":"Lory Huz – Julie Muckensturm",
+                 "text":"Le pitch de présentation : En partenariat avec le Ministère de la Culture et de la Communication, il s'agissait de créer une interface innovante à partir de la base sémantisée Joconde et de l’encyclopédie en ligne DBPedia. Notre réponse est un outil professionnel conçu pour les commissaires-priseurs et commissaires d'exposition, mettant en exergue le parcours physique d'œuvres, de leur lieu de création à leur localisation actuelle.",
+                 "images":
+                     [
+                      "huz_muckensturm/jl_global2.jpg",
+                      "huz_muckensturm/jl_plusieursecranmockup.jpg"
+                     ],
+                 "video":"huz_muckensturm/jl_demo_technique.mp4",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"huz_muckensturm/synthese_huz_muckensturm.pdf"}
+                     ]
+             },
+             "josseau_pouyet":
+             {
+                 "authors":"Thomas Josseau – Sylvain Pouyet",
+                 "text":"Notre projet a pour ambition de pousser les membres de la génération Y à aller plus loin dans la recherche en la rendant ludique et intelligible, tout en les aidant a assimiler au mieux les informations. Pour y répondre, nous proposons une interface bâtie en 3 niveaux. Le premier permet de concevoir une recherche additive, proposant une système d’affinage novateur, faisant appel à la curiosité naturelle de notre cible. Le second est basé sur la visualisation sensible des oeuvres. Enfin, le troisième propose une généalogie inversée de l’oeuvre visualisée, permettant de retracer son histoire et les influences qui l’ont vu naitre,  ainsi qu’une documentation visuelle et textuelle complète.",
+                 "images":
+                     [
+                      "josseau_pouyet/josseau_pouyet.png"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"josseau_pouyet/synthese.pdf"},
+                      {"label":"Planche graphique.pdf", "url":"josseau_pouyet/planche_graphique.pdf"}
+                     ]
+             },
+             "lefevbre_delcros":
+             {
+                 "authors":"Jérémy Lefebvre – Jordan Delcros",
+                 "text":"Concept : Notre concept tient en une plateforme d'apprentissage interactive pour les pré-ados et jeunes adultes permettant d'élargir ses connaissances en histoire de l'art grâce à d'amusants petits jeux.",
+                 "images":
+                     [
+                      "lefevbre_delcros/01_relier_points.jpg",
+                      "lefevbre_delcros/02_question.jpg",
+                      "lefevbre_delcros/06_jeu1.jpg",
+                      "lefevbre_delcros/06_jeu3.jpg",
+                      "lefevbre_delcros/09_wiki_panneau.jpg",
+                      "lefevbre_delcros/11_wiki_panneau.jpg"
+                     ],
+                 "video":"lefevbre_delcros/joconde.mp4",
+                 "docs":
+                     [
+                      {"label":"Présentation.pdf", "url":"lefevbre_delcros/presentation.pdf"}
+                     ]
+             },
+             "minga_honingstein":
+             {
+                 "authors":"Alexane Minga – Samuel Honingstein",
+                 "text":"EXPLORATION, SURVEILLANCE Et PARTAGE. Notre concept vise à offrir une expérience nouvelle et interactive autour de la base de données JocondeLab, afin de permettre à l’utilisateur d’entrer dans la peau d’un explorateur. Pour ce faire, nous avons développé un système de navigation par découverte de l’information, ainsi qu’un module de discussion instantanée permettant aux utilisateurs d’échanger leurs connaissances.",
+                 "images":
+                     [
+                	 "minga_honingstein/01_introduction_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/02_identification_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/03_home_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/04_recherche_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/04_recherche2_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/05_sidebar_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche_sidebar_off_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche_sidebar_on_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche2_sidebar_off_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche2_sidebar_on_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche3_sidebar_off_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche3_sidebar_on_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche4_sidebar_off_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche4_sidebar_on_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche5_sidebar_off_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche5_sidebar_on_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche6_sidebar_off_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche6_sidebar_on_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/06_fiche7-hover_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/07_notification_Screens_Minga_Honigstein.png",
+                	 "minga_honingstein/08_filtres_Screens_Minga_Honigstein.png"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                      {"label":"Dossier.pdf", "url":"minga_honingstein/dossier_minga_honigstein.pdf"}
+                     ]
+             },
+             "moreira_rimbert":
+             {
+                 "authors":"Katia Moreira - Maxime Rimbert",
+                 "text":"Pitch : Notre version de JocondeLab accompagne l'utilisateur dans la création et l'organisation d'un voyage culturel à la découverte des musées Français. Il prend en compte ses goûts et ses envies afin de lui proposer un parcours personnalisé et pertinent.",
+                 "images":
+                     [
+						"moreira_rimbert/01.png",
+						"moreira_rimbert/02.png",
+						"moreira_rimbert/03.png",
+						"moreira_rimbert/04.png",
+						"moreira_rimbert/05.png",
+						"moreira_rimbert/06.png",
+						"moreira_rimbert/08.png",
+						"moreira_rimbert/09.png",
+						"moreira_rimbert/10.png",
+						"moreira_rimbert/12.png",
+						"moreira_rimbert/13.png",
+						"moreira_rimbert/14.png",
+						"moreira_rimbert/15.png",
+						"moreira_rimbert/17.png",
+						"moreira_rimbert/19.png"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                      {"label":"Présentation.pdf", "url":"moreira_rimbert/presentation.pdf"}
+                     ]
+             },
+             "obe_ryckeghem":
+             {
+                 "authors":"Louise Obé – Maxime Rickeghem",
+                 "text":"JocondeLab est une application web principalement destinée aux professeurs qui enseignent l'histoire de l'art. Elle leur fournit un accès complet et simplifié à la base de données Joconde mais aussi et surtout un outil indispensable afin de préparer leurs cours. À travers une navigation innovante et unique, les utilisateurs peuvent visualiser et explorer l'ensemble des oeuvres exposées dans les musées de France. Ils peuvent ensuite accéder à une interface d'édition dans laquelle ils disposent de plusieurs outils afin de se créer leur support de cours: ajout de commentaires sur le visuel de l'oeuvre, sur­lignage de texte, dessin des lignes de force ou encore liaison des oeuvres entre elles. Ils ont ensuite la possibilité d'exporter une \"fiche\" au format PDF qui est générée à partir des éléments de l'édition mais le site leur permet également de télécharger une fiche interactive sur une plateforme mobile (smartphone & tablettes). Enfin, une fonctionnalité de partage permettra à la communauté JocondeLab de mettre en commun leur travail afin d'échanger leurs connaissances et d'enrichir le contenu du site.",
+                 "images":
+                     [
+                      "obe_ryckeghem/visu_ipad.jpg",
+                      "obe_ryckeghem/visu_ipad2_1.jpg",
+                      "obe_ryckeghem/visu_ipad2.jpg",
+                      "obe_ryckeghem/visu_ipad3.jpg"
+                     ],
+                 "video":"obe_ryckeghem/video_jocondelab.mp4",
+                 "docs":
+                     [
+                     ]
+             },
+             "piquemal_jasmin":
+             {
+                 "authors":"Hugo Piquemal – Guillaume Jasmin",
+                 "text":"Pitch du projet : Malgré la quantité d'informations disponibles via JocondeLab, nous ne souhaitions non pas créer un outil qui remplace les manières traditionnelles d'aller à la recherche d'informations (ici la visite d'une exposition) mais un outil complémentaire à une visite en musée, en liant chaque utilisation de JocondeLab à une exposition passée ou en cours. Cette liaison se fait à travers des corpus d'oeuvres complémentaires à une exposition en cours. Ces corpus sont créés et pensés par l'équipe de médiation culturelle de chaque exposition, dans le but de prolonger soit-même sa visite sur JocondeLab, de manière guidée. Ces corpus agissent aussi comme des \"cartes de visites\" pour les événements, permettant de faire gagner de la visibilité aux lieux d'expositions, petits comme grands.                	 JocondeLab est donc un outil à mi-chemin entre un agenda d'exposition, un outil de découverte d'oeuvres et une expérience immersive. Il peut alors servir pour préparer une visite ou susciter l'envie de visiter une exposition grâce à la sélection d'oeuvres et le résumé rédigé par l'équipe de médiation culturelle, mais il peut aussi, après la visite d'une exposition, prolonger les questionnements de celle-ci au travers d'oeuvres supplémentaires.",
+                 "images":
+                     [
+                      "piquemal_jasmin/1-home.png",
+                      "piquemal_jasmin/2-expositions.png",
+                      "piquemal_jasmin/3-exposition.png",
+                      "piquemal_jasmin/4-oeuvre.png",
+                      "piquemal_jasmin/5-oeuvreinfos.png",
+                      "piquemal_jasmin/6-links.png",
+                      "piquemal_jasmin/7-parcours.png"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                     ]
+             },
+             "reucherand_terray":
+             {
+                 "authors":"Sylvain Reucherand – Thibault Terray",
+                 "text":"Pitch : Notre vision du projet JocondeLab s’intègre dans une démarche de découverte artistique dont le but est de susciter la créativité et l’imaginaire. La navigation s’inscrit dans un processus de contemplation où l’utilisateur déambule à travers l’histoire de l’art, d’oeuvre en oeuvre, et où chacun de ses choix influencera la suite de son parcours. Il s’agit d’une interface au design minimaliste et au code couleur bien spécifique dont le but est de guider l’utilisateur dans ses prises de décisions et de faire ressortir toute la magnificence des oeuvres.",
+                 "images":
+                     [
+                     ],
+                 "video":"reucherand_terray/reucherand_terray.mp4",
+                 "docs":
+                     [
+                      {"label":"Présentation.pdf", "url":"reucherand_terray/presentation.pdf"}
+                     ]
+             },
+             "rouffet_anglade":
+             {
+                 "authors":"Marjorie Rouffet – Antonin Anglade",
+                 "text":"Notre concept est de créer un parcours propre à chaque utilisateur. Celui-ci à pour vocation de centraliser et rendre plus accessible l'ensemble des recherches. L'interface que nous proposons a également pour but de garder en mémoire toutes les explorations effectuées par l'internaute. Elle doit donner envie d'aller plus loin dans ses recherches, de découvrir d'autres artistes, d'autres oeuvres.",
+                 "images":
+                     [
+                      "rouffet_anglade/1.png",
+                      "rouffet_anglade/2.png",
+                      "rouffet_anglade/3.png",
+                      "rouffet_anglade/4.png",
+                      "rouffet_anglade/5.png",
+                      "rouffet_anglade/6.png"
+                     ],
+                 "video":"rouffet_anglade/jocondelab.mp4",
+                 "docs":
+                     [
+                      {"label":"Présentation.pdf", "url":"rouffet_anglade/prez.pdf"}
+                     ]
+             },
+             "siestrunck_penrath":
+             {
+                 "authors":"Marthe Siestrunck – Jean-baptiste Penrath",
+                 "text":"Joconde Lab est un outil intuitif et ludique pour consulter la base Joconde. La recherche s'axe autour de mots clés et liens representés de façon graphique.  Le but étant de n'influencer l'utilisateur à aucun moment de sa recherche. En supprimant/ajoutant de nouveaux mots clés et recherches, l'utilisateur a la liberté de découvrir des œuvres qu'il n'aurait jamais trouvé par le biais d'un moteur de recherche classique.",
+                 "images":
+                     [
+                     ],
+                 "video":"siestrunck_penrath/demo_jocondelab.mp4",
+                 "docs":
+                     [
+                      {"label":"Synthèse.pdf", "url":"siestrunck_penrath/synthese.pdf"}
+                     ]
+             },
+             "thome_sonna":
+             {
+                 "authors":"Tohme Athanassios – Sonna Glenn",
+                 "text":"Pitch : Notre projet JocondeLab permet à l’utilisateur de visualiser ses parcours de recherche et de les mettre en relation afin de découvrir des anecdotes intéressantes et inattendues reliant les différents articles de la recherche.",
+                 "images":
+                     [
+                      "thome_sonna/thome_sonna.png"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                      {"label":"Captures d'écran.pdf", "url":"thome_sonna/captures.pdf"},
+                      {"label":"Planche.pdf", "url":"thome_sonna/planches.pdf"},
+                      {"label":"Synthèse.pdf", "url":"thome_sonna/synthese.pdf"}
+                     ]
+             },
+             "vimont_tessier":
+             {
+                 "authors":"Benjamin Vimont – Alexis Tessier",
+                 "text":"Joconde Lab met à disposition beaucoup de contenus et d’informations. Pour s’y retrouver, et faire ressortir le contenu important, nous nous sommes orientés vers la réalisation d’un outil de curation collaboratif. Chaque utilisateur participe à la curation en créant des expositions virtuelles autour d’un thème (artiste, lieu, époque, etc.), et en proposant des ajouts et modifications à celles existantes.",
+                 "images":
+                     [
+                      "vimont_tessier/1.jpg",
+                      "vimont_tessier/2.jpg",
+                      "vimont_tessier/3.jpg",
+                      "vimont_tessier/4.jpg"
+                     ],
+                 "video":"vimont_tessier/jcl.mp4",
+                 "docs":
+                     [
+                      {"label":"Présentation.pdf", "url":"vimont_tessier/presentation.pdf"}
+                     ]
+             },
+             "vittori_thenot":
+             {
+                 "authors":"Nicolas Vittori – Goeffrey Thenot",
+                 "text":"Pitch : Envisager le service Joconde-Lab non plus seulement comme une base de donnée à la fois textuelle et visuelle mais davantage comme un nouveau média international multi support au contenu éditorial rédigé et exigeant permettant à l’utilisateur d’appréhender le contexte historique des œuvres présentes dans la base de donnée avec la possibilité de chercher à tout moment dedans grâce à une recherche intuitive. S’adressant à une cible exigeante et cultivée, le projet propose un partenariat entre la base de donnée Joconde et un magazine d’art exigeant et pointu qui s’occupe de publier chaque semaine un «écho» : une courte réflexion artistique autour d’une œuvre ou d’un thème en regroupant plusieurs de natures plus ou moins différentes. La particularité du contenu éditorial réside dans le fait qu’il est rédigé par différents professionnels du monde de l’art qui agissent comme des commissaires d’expositions en sélectionnant avec pertinence des œuvres autour d’un thème. Le concept repose sur cinq piliers: Un «écho» hebdomadaire, Une recherche intuitive, Un maintient d’habitudes de lectures, Un compte utilisateur, La possibilité de changer à tout moment la langue du site",
+                 "images":
+                     [
+                      "vittori_thenot/vittori_thenot.jpg"
+                     ],
+                 "video":"",
+                 "docs":
+                     [
+                     ]
+             }
+    	};
+    	
+        // Get group array number
+        var g = getURLParameter("g");
+        if(typeof g=="string"){
+            if(g in group_data){
+            	var d = group_data[g];
+            	$("#authors").append(d["authors"]);
+            	$("#text").append(d["text"]);
+            	var n = d["images"].length;
+            	for(var i=0;i<n;i++){
+            		$("#image-list").append('<li><img class="students-img" src="{% static 'jocondelab/students/' %}' + d["images"][i] + '" /></li>');
+            	}
+            	if(d["video"]!=""){
+            		$("#video-container").append(
+            			'<video id="video_1" class="students-img video-js vjs-default-skin vjs-big-play-centered"\
+            					  controls preload="auto" height="480" width="854" >\
+            					 <source src="{% static 'jocondelab/students/' %}' + d["video"] + '" type="video/mp4" />\
+            			</video>');
+            		videojs("video_1");
+            	}
+            	n = d["docs"].length;
+            	if(n>0){
+                    for(i=0;i<n;i++){
+                        $("#doc-list").append('<li><a class="pdf-link about-text" href="{% static 'jocondelab/students/' %}' + d["docs"][i]["url"] + '">' + d["docs"][i]["label"] + '</a></li>');
+                    }
+            	}
+            }
+        }
+
+    });
+    </script>
+{% endblock %}
+
+{% block main %}
+<div class="results">
+	<h2 class="resultcount" id="authors"></h2>
+	<p id="text" class="about-text"></p>
+</div>
+<ul class="notice-list clearfix" id="image-list"></ul>
+<div id="video-container"></div>
+<ul class="notice-list clearfix" id="doc-list"></ul>
+{% endblock %}
