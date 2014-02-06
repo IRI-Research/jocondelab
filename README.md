@@ -32,7 +32,8 @@ En voici la liste:
   - underscore : http://underscorejs.org/
   - hammer : http://eightmedia.github.io/hammer.js/
   - videojs : http://www.videojs.com/
-  - leaflet i: http://leafletjs.com/
+  - leaflet : http://leafletjs.com/
+  - Leaflet.zoomslider : http://kartena.github.io/Leaflet.zoomslider/
   - les polices OpenSans-Bold, OpenSans-ExtraBold, OpenSans-Regular : https://www.google.com/fonts/
   - jquery.magnific-popup : http://dimsemenov.com/plugins/magnific-popup/ 
   - jquery.mousewheel : https://github.com/brandonaaron/jquery-mousewheel
