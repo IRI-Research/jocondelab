@@ -36,7 +36,7 @@
 # pris connaissance de la licence CeCILL-C, et que vous en avez accepté les
 # termes.
 #
-VERSION = (0, 66, 0, "final", 0)
+VERSION = (0, 68, 0, "final", 0)
 
 
 def get_version():
