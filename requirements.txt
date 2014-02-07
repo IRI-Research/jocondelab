@@ -1,4 +1,4 @@
-Django==1.6.2
+-e git://github.com/IRI-Research/django.git@1.6.2+IRI#egg=Django
 Pillow==2.3.0
 SPARQLWrapper==1.5.2
 SQLAlchemy==0.8.1
@@ -7,7 +7,7 @@ Unidecode==0.04.14
 distribute==0.6.34
 django-extensions==1.1.1
 django-haystack==2.1.0
-django-mptt==0.5.-dev
+django-mptt==0.6.0
 django-pipeline==1.3.20
 futures==2.1.6
 html5lib==1.0b1
@@ -18,14 +18,14 @@ pyelasticsearch==0.6.1
 pyparsing==1.5.7
 python-dateutil==2.1
 rdflib==4.0.1
-rdflib-sqlalchemy==0.2.dev
+-e git://github.com/RDFLib/rdflib-sqlalchemy.git#egg=rdflib-sqlalchemy
 requests==2.2.1
 simplejson==3.3.2
 six==1.3.0
 wikitools==1.1.1
 wsgiref==0.1.2
 
-# requirement for server. Please select the ones that applies to ypur environment
+# requirement for server. Please select the ones that applies to your environment
 #python-memcached
 #pylibmc
 #uWSGI
