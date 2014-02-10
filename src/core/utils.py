@@ -41,11 +41,12 @@ Created on Feb 1, 2012
 
 @author: ymh
 '''
-import sys
 import codecs #@UnresolvedImport
 import math
+import sys
 
-def show_progress(current_line, total_line, label, width, writer=None):
+
+def show_progress(current_line, total_line, label, width, writer=None, newline=False):
 
     if writer is None:
         writer = sys.stdout
@@ -59,7 +60,7 @@ def show_progress(current_line, total_line, label, width, writer=None):
 
     loader = u'[' + (u'=' * int(marks)) + (u' ' * int(spaces)) + u']'
         
-    s = u"%s %3d%% %*d/%d - %*s\r" % (loader, percent, len(str(total_line)), current_line, total_line, width, label[:width])
+    s = u"%s %3d%% %*d/%d - %*s%s" % (loader, percent, len(str(total_line)), current_line, total_line, width, label[:width], "\n" if newline else "\r")
     
     writer.write(s) #takes the header into account
     if percent >= 100:
