@@ -42,20 +42,25 @@ import logging
 
 from django.db.models.fields.related import ForeignKey
 
-from core.models.term import Term
+from jocondelab.models import Contribution
 from jocondelab.management.commands.export_csv import ExportCsvCommand
+from jocondelab.models.contribution import ContributedFields
 
 
 logger = logging.getLogger(__name__)
 
 
-fields = [
-    "label", "uri", "validated", "wp_label", "wp_alternative_label",
-    "thesaurus__label", "thesaurus__uri", "dbpedia_uri", "wikipedia_url",
-    "wikipedia_pageid", "wikipedia_revision_id", "alternative_wikipedia_url",
-    "alternative_wikipedia_pageid", "url_status", "link_semantic_level",
-    "wikipedia_edition"
+query_fields = [
+    "term__dbpedia_uri", "term__dbpedia_language",
+    "thesaurus__label",
+    "notice__ref", "notice__repr",
+    "contribution_count",
 ]
+
+fields = query_fields + [
+    "term__dbpedia_uri__label"
+]
+
 
 class Command(ExportCsvCommand):
  
@@ -66,11 +71,15 @@ class Command(ExportCsvCommand):
         return fields
 
     def get_query(self):
-        return Term.objects.all().select_related(*[field.name for field in Term._meta.fields if isinstance(field, ForeignKey)]).order_by('uri').values_list(*fields)  # @UndefinedVariable
-    
+        return Contribution.objects.all().select_related(*[field.name for field in Contribution._meta.fields if isinstance(field, ForeignKey)]).order_by('notice__ref').values_list(*query_fields)  # @UndefinedVariable
+
     def process_row(self, r):
-        return r
-    
+        q = list(ContributedFields.objects.filter(dbpedia_uri=r[0], language_code='fr'))
+        label = ""
+        if q:
+            label = q[0].label
+        return tuple(list(r) + [ label ])
+
     def get_row_message(self, r):
-        return "Exporting term %s" % r[0]  # @IgnorePep8
+        return "Exporting contribution %s" % repr(r[0])  # @IgnorePep8
 
