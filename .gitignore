@@ -8,6 +8,7 @@ virtualenv/
 .project
 .pydevproject
 .settings/
+.vscode/
 data/
 run/
 sbin/

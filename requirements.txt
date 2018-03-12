@@ -4,7 +4,8 @@ SPARQLWrapper==1.5.2
 SQLAlchemy==0.8.1
 South==0.7.6
 Unidecode==0.04.14
-distribute==0.6.34
+#distribute==0.6.34
+setuptools
 django-extensions==1.1.1
 django-haystack==2.1.0
 django-mptt==0.6.0
@@ -13,7 +14,7 @@ futures==2.1.6
 html5lib==1.0b1
 isodate==0.4.9
 lxml==3.2.1
-psycopg2==2.5
+psycopg2-binary==2.7.4
 pyelasticsearch==0.6.1
 pyparsing==1.5.7
 python-dateutil==2.1
