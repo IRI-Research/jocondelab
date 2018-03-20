@@ -225,7 +225,7 @@ class Command(BaseCommand):
             # JOCONDELAB_NS.dbpediaGeo
             # JOCONDELAB_NS.Notice
             # JOCONDELAB_NS.NoticeImage
-            
+
             # JOCONDELAB_NS.YearInfo
             # JOCONDELAB_NS.YearInfoStart
             # JOCONDELAB_NS.YearInfoEnd
@@ -244,7 +244,7 @@ class Command(BaseCommand):
             # JOCONDELAB_NS.noticeCopy
             # JOCONDELAB_NS.noticeDacq
             # JOCONDELAB_NS.noticeCata
-            # JOCONDELAB_NS.noticeDation 
+            # JOCONDELAB_NS.noticeDation
             # JOCONDELAB_NS.noticeDdpt
             # JOCONDELAB_NS.noticeDecv
             # JOCONDELAB_NS.noticeDeno
@@ -258,7 +258,7 @@ class Command(BaseCommand):
             # JOCONDELAB_NS.noticeDomnTerm
             # JOCONDELAB_NS.noticeDrep
             # JOCONDELAB_NS.noticeEcol
-            # JOCONDELAB_NS.noticeEcolTerm 
+            # JOCONDELAB_NS.noticeEcolTerm
             # JOCONDELAB_NS.noticeEpoq
             # JOCONDELAB_NS.noticeEpoqTerm
             # JOCONDELAB_NS.noticeEtat
@@ -268,7 +268,7 @@ class Command(BaseCommand):
             # JOCONDELAB_NS.noticeHist
             # JOCONDELAB_NS.noticeImage
             # JOCONDELAB_NS.noticeInsc
-            # JOCONDELAB_NS.noticeInv 
+            # JOCONDELAB_NS.noticeInv
             # JOCONDELAB_NS.noticeLabel
             # JOCONDELAB_NS.noticeLabo
             # JOCONDELAB_NS.noticeLieux
@@ -346,7 +346,7 @@ class Command(BaseCommand):
 
 
     def export_objects(self, query, obj_name, build_object_graph, dest_file):
-        
+
         print("Exporting " + obj_name)
         namespaces = rdf_namespaces.get(obj_name, {})
         progress_writer = None
@@ -360,17 +360,23 @@ class Command(BaseCommand):
             for obj in obj_paginator.page(page_nb):
                 g = Graph()
                 self.bind_namespaces(g, namespaces)
-                g = build_object_graph(g, obj)
+                progress_message = "Exporting " + obj_name
+                try:
+                    g = build_object_graph(g, obj)
+                    dest_file.write(self.remove_namespace_declarations(g.serialize(format='turtle')))
+                except Exception as e:
+                    progress_message = "Error exporting " + obj_name + " : " + getattr(e, 'message', '')
+                    logger.exception("Error exporting %s", obj_name)
+
                 i += 1
                 progress_writer = show_progress(
                     i,
                     obj_count,
-                    "Exporting " + obj_name,
+                    progress_message,
                     40,
                     writer=progress_writer,
                     newline=self.newline
                 )
-                dest_file.write(self.remove_namespace_declarations(g.serialize(format='turtle')))
             gc.collect()
 
 
@@ -421,7 +427,7 @@ class Command(BaseCommand):
 
         if term.alternative_wikipedia_pageid:
             g.add((term_ref, JOCONDELAB_NS.alternativeWikipediaPageID, Literal(term.alternative_wikipedia_pageid)))
-        
+
         if term.dbpedia_uri:
             g.add((term_ref, JOCONDELAB_NS.dbpediaResource, URIRef(term.dbpedia_uri)))
 
@@ -463,7 +469,7 @@ class Command(BaseCommand):
             g.add((dbp_geo_bnode, RDF.type, JOCONDELAB_NS.DbpediaGeo))
             g.add((dbp_geo_bnode, GEO.lat, Literal(str(dbp_geo.latitude), datatype=XSD.double)))
             g.add((dbp_geo_bnode, GEO.long, Literal(str(dbp_geo.longitude), datatype=XSD.double)))
-        
+
         return g
 
 
@@ -493,7 +499,7 @@ class Command(BaseCommand):
         termNbs = NoticeTerm.objects.filter(notice=notice).count()
         totalTermNb = 0
         for fieldName in ['autr', 'domn', 'ecol', 'epoq', 'lieux', 'peri', 'repr', 'srep']:
-            
+
             termQuery = getattr(notice, fieldName + "_terms")
             for term in termQuery.all():
                 if term.thesaurus.label.lower() == fieldName:
@@ -526,7 +532,7 @@ class Command(BaseCommand):
         return JOCONDELAB_DATA_NS + "contributed_term/" + str(term.id)
 
     def export_contributed_term(self, g, term):
-        
+
         term_uri = self.get_contributed_term_uri(term)
 
         term_ref = URIRef(term_uri)
