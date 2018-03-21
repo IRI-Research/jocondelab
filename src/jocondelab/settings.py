@@ -301,7 +301,7 @@ WIKIPEDIA_URLS = {
     },
 }
 
-JOCONDE_IMAGE_BASE_URL = "http://www.culture.gouv.fr/Wave/image/joconde"
+JOCONDE_IMAGE_BASE_URL = "http://www2.culture.gouv.fr/Wave/image/joconde"
 JOCONDE_NOTICE_BASE_URL = "http://www.culture.gouv.fr/public/mistral/joconde_fr?ACTION=CHERCHER&FIELD_98=REF&VALUE_98="
 JOCONDE_TERM_TREE_MAX_CHILDREN = 50
 JOCONDE_TERM_TREE_MAX_ROOT_NODE = 300 

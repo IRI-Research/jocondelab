@@ -180,148 +180,6 @@ class Command(BaseCommand):
         self.addN(g, [
             (JOCONDELAB_NS.wikipediaLabel, RDFS.subPropertyOf, SKOS.altLabel),
             (JOCONDELAB_NS.wikipediaAlternativeLabel, RDFS.subPropertyOf, SKOS.altLabel),
-            # JOCONDELAB_NS.Thesaurus -> SKOS.ConceptScheme
-            # JOCONDELAB_NS.Term -> SKOS.Concept
-            # JOCONDELAB_NS.normalizedLabel -> SKOS.hiddenLabel
-            # JOCONDELAB_NS.wikipediaPage -> range foaf:Document
-            # <owl:ObjectProperty rdf:about="#wikipediaArticle">
-            #     <rdfs:comment xml:lang="en">A Wikipedia article of which subject is the resource.</rdfs:comment>
-            #     <rdfs:domain rdf:resource="#Feature"/>
-            #     <rdfs:label xml:lang="en">wikipedia article</rdfs:label>
-            #     <rdfs:range rdf:resource="#WikipediaArticle"/>
-            # </owl:ObjectProperty>
-            # JOCONDELAB_NS.wikipediaPageID ??
-            # JOCONDELAB_NS.wikipediaPageRevision ??
-            # JOCONDELAB_NS.alternativeWikipediaPage -> range foaf:Document
-            # JOCONDELAB_NS.alternativeWikipediaPageID ??
-            # JOCONDELAB_NS.dbpediaResource
-            # JOCONDELAB_NS.urlStatus  cf: src/core/models/term.py
-            #   (0, "null_result"),
-            #   (1, "redirection"),
-            #   (2, "homonyme"),
-            #   (3, "match"),
-            #   (4, "unsematized"),
-            # JOCONDELAB_NS.linkSemanticLevel cf: src/core/models/term.py
-            #   TERM_WK_LINK_SEMANTIC_LEVEL_CHOICES = (
-            #   (0, "--"),
-            #   (1, "EE"),
-            #   (2, "EI"),
-            #   (3, "BM"),
-            #   (4, "NM"))
-            # JOCONDELAB_NS.linkValidated
-            # JOCONDELAB_NS.linkValidationDate
-            # JOCONDELAB_NS.linkValidator
-            # JOCONDELAB_NS.wikipediaEdition
-            # JOCONDELAB_NS.DbpediaField
-            # JOCONDELAB_NS.dbpediaField
-            # JOCONDELAB_NS.dbpediaFieldThumbnail
-            # JOCONDELAB_NS.dbpediaFieldLabel
-            # JOCONDELAB_NS.dbpediaFieldAbstract
-            # JOCONDELAB_NS.DbpediaYear
-            # JOCONDELAB_NS.dbpediaYear
-            # JOCONDELAB_NS.dbpediaYearStart
-            # JOCONDELAB_NS.dbpediaYearEnd
-            # JOCONDELAB_NS.DbpediaGeo
-            # JOCONDELAB_NS.dbpediaGeo
-            # JOCONDELAB_NS.Notice
-            # JOCONDELAB_NS.NoticeImage
-
-            # JOCONDELAB_NS.YearInfo
-            # JOCONDELAB_NS.YearInfoStart
-            # JOCONDELAB_NS.YearInfoEnd
-
-            # JOCONDELAB_NS.noticeRef
-            # JOCONDELAB_NS.noticeAdpt
-            # JOCONDELAB_NS.noticeAppl
-            # JOCONDELAB_NS.noticeAptn
-            # JOCONDELAB_NS.noticeAttr
-            # JOCONDELAB_NS.noticeAutr
-            # JOCONDELAB_NS.noticeAutrTerm
-            # JOCONDELAB_NS.noticeBibl
-            # JOCONDELAB_NS.noticeComm
-            # JOCONDELAB_NS.noticeContact
-            # JOCONDELAB_NS.noticeCoor
-            # JOCONDELAB_NS.noticeCopy
-            # JOCONDELAB_NS.noticeDacq
-            # JOCONDELAB_NS.noticeCata
-            # JOCONDELAB_NS.noticeDation
-            # JOCONDELAB_NS.noticeDdpt
-            # JOCONDELAB_NS.noticeDecv
-            # JOCONDELAB_NS.noticeDeno
-            # JOCONDELAB_NS.noticeDepo
-            # JOCONDELAB_NS.noticeDesc
-            # JOCONDELAB_NS.noticeDesy
-            # JOCONDELAB_NS.noticeDims
-            # JOCONDELAB_NS.noticeDmaj
-            # JOCONDELAB_NS.noticeDmis
-            # JOCONDELAB_NS.noticeDomn
-            # JOCONDELAB_NS.noticeDomnTerm
-            # JOCONDELAB_NS.noticeDrep
-            # JOCONDELAB_NS.noticeEcol
-            # JOCONDELAB_NS.noticeEcolTerm
-            # JOCONDELAB_NS.noticeEpoq
-            # JOCONDELAB_NS.noticeEpoqTerm
-            # JOCONDELAB_NS.noticeEtat
-            # JOCONDELAB_NS.noticeExpo
-            # JOCONDELAB_NS.noticeGene
-            # JOCONDELAB_NS.noticeGeohi
-            # JOCONDELAB_NS.noticeHist
-            # JOCONDELAB_NS.noticeImage
-            # JOCONDELAB_NS.noticeInsc
-            # JOCONDELAB_NS.noticeInv
-            # JOCONDELAB_NS.noticeLabel
-            # JOCONDELAB_NS.noticeLabo
-            # JOCONDELAB_NS.noticeLieux
-            # JOCONDELAB_NS.noticeLieuxTerm
-            # JOCONDELAB_NS.noticeLoca
-            # JOCONDELAB_NS.noticeLoca2
-            # JOCONDELAB_NS.noticeMill
-            # JOCONDELAB_NS.noticeMilu
-            # JOCONDELAB_NS.noticeMosa
-            # JOCONDELAB_NS.noticeMsgcom
-            # JOCONDELAB_NS.noticeMuseo
-            # JOCONDELAB_NS.noticeNsda
-            # JOCONDELAB_NS.noticeOnom
-            # JOCONDELAB_NS.noticePaut
-            # JOCONDELAB_NS.noticePdat
-            # JOCONDELAB_NS.noticePdec
-            # JOCONDELAB_NS.noticePeoc
-            # JOCONDELAB_NS.noticePeri
-            # JOCONDELAB_NS.noticePeriTerm
-            # JOCONDELAB_NS.noticePeru
-            # JOCONDELAB_NS.noticePhot
-            # JOCONDELAB_NS.noticePins
-            # JOCONDELAB_NS.noticePlieux
-            # JOCONDELAB_NS.noticePrep
-            # JOCONDELAB_NS.noticePuti
-            # JOCONDELAB_NS.noticeReda
-            # JOCONDELAB_NS.noticeRefim
-            # JOCONDELAB_NS.noticeRepr
-            # JOCONDELAB_NS.noticeReprTerm
-            # JOCONDELAB_NS.noticeSrep
-            # JOCONDELAB_NS.noticeSrepTerm
-            # JOCONDELAB_NS.noticeStat
-            # JOCONDELAB_NS.noticeTech
-            # JOCONDELAB_NS.noticeTico
-            # JOCONDELAB_NS.noticeTitr
-            # JOCONDELAB_NS.noticeUtil
-            # JOCONDELAB_NS.noticeVideo
-            # JOCONDELAB_NS.noticeWww
-
-            # JOCONDELAB_NS.noticeImage
-            # JOCONDELAB_NS.noticeImageUrl
-
-            # JOCONDELAB_NS.noticeYear
-            # JOCONDELAB_NS.noticeYearStart
-            # JOCONDELAB_NS.noticeYearEnd
-
-            # JOCONDELAB_NS.ContributedTerm
-            # JOCONDELAB_NS.Contribution
-            # JOCONDELAB_NS.contributionTerm
-            # JOCONDELAB_NS.contributionThesaurus
-            # JOCONDELAB_NS.contributionNotice
-            # JOCONDELAB_NS.contributionCount
-
         ])
 
     def add_n(self, g, triples):
@@ -485,7 +343,7 @@ class Command(BaseCommand):
             'comm', 'contact', 'coor', 'copy', 'dacq', 'data',
             'dation', 'ddpt', 'decv', 'deno', 'depo', 'desc', 'desy',
             'dims', 'dmaj', 'dmis', 'domn', 'drep', 'ecol', 'epoq',
-            'etat', 'expo', 'gene', 'geohi', 'hist', 'image', 'insc',
+            'etat', 'expo', 'gene', 'geohi', 'hist', 'insc',
             'inv', 'label', 'labo', 'lieux', 'loca', 'loca2', 'mill',
             'milu', 'mosa', 'msgcom', 'museo', 'nsda', 'onom', 'paut',
             'pdat', 'pdec', 'peoc', 'peri', 'peru', 'phot', 'pins',
@@ -496,23 +354,30 @@ class Command(BaseCommand):
             if fieldValue:
                 g.add((notice_ref, getattr(JOCONDELAB_NS, "notice"+fieldName.capitalize()), Literal(fieldValue)))
 
-        termNbs = NoticeTerm.objects.filter(notice=notice).count()
-        totalTermNb = 0
-        for fieldName in ['autr', 'domn', 'ecol', 'epoq', 'lieux', 'peri', 'repr', 'srep']:
+        # termNbs = NoticeTerm.objects.filter(notice=notice).count()
+        # totalTermNb = 0
+        # for fieldName in ['autr', 'domn', 'ecol', 'epoq', 'lieux', 'peri', 'repr', 'srep']:
 
-            termQuery = getattr(notice, fieldName + "_terms")
-            for term in termQuery.all():
-                if term.thesaurus.label.lower() == fieldName:
-                    totalTermNb += 1
-                    g.add((notice_ref, getattr(JOCONDELAB_NS, "notice"+fieldName.capitalize()+"Term"), URIRef(term.uri)))
+        #     termQuery = getattr(notice, fieldName + "_terms")
+        #     for term in termQuery.select_related('thesaurus').all():
+        #         if term.thesaurus.label.lower() == fieldName:
+        #             totalTermNb += 1
+        #             g.add((notice_ref, getattr(JOCONDELAB_NS, "notice"+fieldName.capitalize()+"Term"), URIRef(term.uri)))
 
-        if totalTermNb != termNbs:
-            logger.critical("Bad term count for notice %s should be %s and is %s", notice_uri, termNbs, totalTermNb)
+        # if totalTermNb != termNbs:
+        #     logger.critical("Bad term count for notice %s should be %s and is %s", notice_uri, termNbs, totalTermNb)
+        # noticeTerms = NoticeTerm.objects.filter(notice=notice).select_related('term', 'term__thesaurus')
+        for nterm in notice.noticeterm_set.all():
+            fieldName = nterm.term.thesaurus.label.lower().capitalize()
+            g.add((notice_ref, getattr(JOCONDELAB_NS, "notice"+fieldName+"Term"), URIRef(nterm.term.uri)))
 
+
+        g.add((notice_ref, JOCONDELAB_NS.noticeHasImage, Literal(notice.image)))
         for notice_image in notice.images.all():
             notice_image_bnode = BNode()
             g.add((notice_ref, JOCONDELAB_NS.noticeImage, notice_image_bnode))
             g.add((notice_image_bnode, RDF.type, JOCONDELAB_NS.NoticeImage))
+            g.add((notice_image_bnode, JOCONDELAB_NS.noticeImagePath, Literal(notice_image.relative_url)))
             g.add((notice_image_bnode, JOCONDELAB_NS.noticeImageUrl, URIRef(notice_image.url)))
             g.add((notice_image_bnode, JOCONDELAB_NS.noticeImageOrder, Literal(notice_image.order)))
             g.add((notice_image_bnode, JOCONDELAB_NS.noticeImageIsMain, Literal(notice_image.main)))
@@ -603,7 +468,7 @@ class Command(BaseCommand):
             #open_args = [filepath, 'wb', "utf-8"]
             open_args = [filepath, 'wb']
 
-        term_query = Term.objects.select_related('thesaurus', 'alternative_labels', 'dbpedia_fields').order_by('id')
+        term_query = Term.objects.prefetch_related('dbpedia_fields', 'geo', 'years', 'alternative_labels').select_related('thesaurus', 'validator', 'parent').order_by('id')
 
         if self.limit >= 0:
             notice_term_query_filter = Q()
@@ -618,123 +483,10 @@ class Command(BaseCommand):
             for query, namespaces, build_method in [
                 (Thesaurus.objects.all(), 'thesaurus', self.export_thesaurus),
                 (term_query, 'term', self.export_term),
-                (Notice.objects.order_by('id').select_related().all(), 'notice', self.export_notice),
-                (ContributedTerm.objects.select_related().order_by('id').all(), 'contributed_term', self.export_contributed_term),
-                (Contribution.objects.select_related().order_by('id').all(), 'contribution', self.export_contribution)
+                (Notice.objects.order_by('id').select_related().prefetch_related('images', 'noticeterm_set', 'noticeterm_set__term', 'noticeterm_set__term__thesaurus', 'years').all(), 'notice', self.export_notice),
+                (ContributedTerm.objects.select_related().prefetch_related('dbpedia_fields').order_by('id').all(), 'contributed_term', self.export_contributed_term),
+                (Contribution.objects.select_related('thesaurus', 'notice', 'term').order_by('id').all(), 'contribution', self.export_contribution)
             ]:
                 self.export_objects(query, namespaces, build_method, dest_file)
-
-
-# list of objects
-
-# User
-
-# Notice
-
-# Term
-
-# TermLabel
-
-# Thesaurus
-
-# NoticeImage
-# NoticeTerm
-
-# Country
-
-# DbpediaFields
-
-# TermLinks
-
-# DbpediaYears
-# DbpediaGeo
-
-# ContributedTerm
-# ContributedFields
-# Contribution
-# ContributableTerm
-# TagcloudTerm
-# NoticeYears
-
-# TERM_URL_STATUS_CHOICES
-# TERM_URL_STATUS_CHOICES_TRANS
-# TERM_URL_STATUS_DICT
-# TERM_WK_LINK_SEMANTIC_LEVEL_CHOICES_TRANS
-# TERM_WK_LINK_SEMANTIC_LEVEL_DICT
-
-
-# export : thesaurus,
-
-
-
-# ref
-# adpt
-# appl
-# aptn
-# attr
-# bibl
-# comm
-# contact
-# coor
-# copy
-# dacq
-# data
-# dation
-# ddpt
-# decv
-# deno
-# depo
-# desc
-# desy
-# dims
-# dmaj
-# dmis
-# drep
-# etat
-# expo
-# gene
-# geohi
-# hist
-# image
-# insc
-# inv
-# label
-# labo
-# loca
-# loca2
-# mill
-# milu
-# mosa
-# msgcom
-# museo
-# nsda
-# onom
-# paut
-# pdat
-# pdec
-# peoc
-# peru
-# phot
-# pins
-# plieux
-# prep
-# puti
-# reda
-# refim
-# stat
-# tech
-# tico
-# titr
-# util
-# video
-# www
-# autr
-# domn
-# ecol
-# epoq
-# lieux
-# peri
-# repr
-# srep
 
 
